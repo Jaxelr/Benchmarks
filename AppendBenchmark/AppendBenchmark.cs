@@ -9,6 +9,7 @@ namespace AppendBenchmark
     [MemoryDiagnoser]
     [ShortRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
+    [MarkdownExporterAttribute.GitHub]
     public class AppendBenchmark
     {
         [Benchmark(Baseline = true)]
