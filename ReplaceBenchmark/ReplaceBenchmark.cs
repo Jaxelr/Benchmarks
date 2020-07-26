@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Order;
 
-namespace AppendBenchmark
+namespace ReplaceBenchmark
 {
     [BenchmarkCategory("Replace")]
     [MemoryDiagnoser]

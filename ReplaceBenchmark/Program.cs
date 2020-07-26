@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Running;
 
-namespace AppendBenchmark
+namespace ReplaceBenchmark
 {
     internal static class Program
     {
