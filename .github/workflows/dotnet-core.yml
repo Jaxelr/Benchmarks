@@ -22,6 +22,6 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Benchmark
-      run: dotnet run --project .\AppendBenchmark\AppendBenchmark.csproj --configuration Release
+      run: dotnet run --project ./AppendBenchmark/AppendBenchmark.csproj --configuration Release
     - name: Test
       run: dotnet test --no-restore --verbosity normal
