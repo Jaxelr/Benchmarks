@@ -20,7 +20,7 @@ jobs:
     - name: Build Reason
       run: echo ${{github.ref}} and ${{github.event_name}}        
     - name: Run Sql Server Image
-      run: docker-compose -f "compose-sql-server.yaml" up -d
+      run: docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=P@ssword123" -p 1433:1433 --name sql-env -d mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
     - name: Install dependencies
       run: dotnet restore
     - name: Build
