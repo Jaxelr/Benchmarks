@@ -20,7 +20,7 @@ jobs:
     - name: Build Reason
       run: echo ${{github.ref}} and ${{github.event_name}}        
     - name: Run Sql Server Image
-      run: docker-compose -f "sql-server.yaml" -d up
+      run: docker-compose -f "compose-sql-server.yaml" -d up
     - name: Install dependencies
       run: dotnet restore
     - name: Build
