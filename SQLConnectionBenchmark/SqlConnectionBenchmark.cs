@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Order;
 using Dapper;
@@ -11,21 +12,28 @@ namespace SQLConnectionBenchmark
     [MarkdownExporterAttribute.GitHub]
     public class SqlConnectionBenchmark
     {
-        private const string ConnString = "Server=.;database=master;Trusted_Connection=true;MultipleActiveResultSets=true;";
+        private readonly string connString;
         private readonly SqlConnection connection;
         private int param;
         private string paramString = string.Empty;
 
         public SqlConnectionBenchmark()
         {
-            connection = new SqlConnection(ConnString);
+            //We do this to pass the connection from the build or locally
+            connString = Environment.GetEnvironmentVariable("SQL_CONNECTION");
+            if (string.IsNullOrEmpty(connString))
+            {
+                connString = "Server=.;database=master;Trusted_Connection=true;MultipleActiveResultSets=true;";
+            }
+
+            connection = new SqlConnection(connString);
             connection.Open();
         }
 
         [Benchmark]
         public void WithUsingExecution()
         {
-            using var cn = (new SqlConnection(ConnString));
+            using var cn = (new SqlConnection(connString));
 
             _ = cn.Query<int>("SELECT @param", new { param });
 
