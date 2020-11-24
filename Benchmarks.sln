@@ -16,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReplaceBenchmark", "Replace
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TupleBenchmark", "TupleBenchmark\TupleBenchmark.csproj", "{6FE03A2A-BFA1-4B8A-A7E7-A0908B2172FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqBenchmark", "LinqBenchmark\LinqBenchmark.csproj", "{B883C2E4-28D0-4AA4-8D07-1A44958766C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqBenchmark", "LinqBenchmark\LinqBenchmark.csproj", "{B883C2E4-28D0-4AA4-8D07-1A44958766C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,6 @@
-﻿# SQLConnectionBenchmark
+﻿# Sql Connection benchmark
 
-I am ware that using multiple usings ads a penalty to the execution of the query, but i needed to measure how much, heres how much on my machine:
+I needed to measure how much impact adding multiple usings add, instead of recycling 1 connection:
 
 ``` ini
 
