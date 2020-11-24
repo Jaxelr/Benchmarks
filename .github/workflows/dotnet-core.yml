@@ -33,6 +33,7 @@ jobs:
        dotnet run --project ./ReplaceBenchmark/ReplaceBenchmark.csproj --configuration Release
        dotnet run --project ./TupleBenchmark/TupleBenchmark.csproj --configuration Release
        dotnet run --project ./SQLConnectionBenchmark/SQLConnectionBenchmark.csproj --configuration Release
+       dotnet run --project ./LinqBenchmark/LinqBenchmark.csproj --configuration Release
     - name: Test
       run: dotnet test --no-restore --verbosity normal
 env:
