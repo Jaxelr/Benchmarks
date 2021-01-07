@@ -15,7 +15,6 @@ namespace SQLConnectionBenchmark
         private readonly string connString;
         private readonly SqlConnection connection;
         private int param;
-        private string paramString = string.Empty;
 
         public SqlConnectionBenchmark()
         {
@@ -48,11 +47,7 @@ namespace SQLConnectionBenchmark
         }
 
         [IterationSetup]
-        public void Increment()
-        {
-            param++;
-            paramString = new string('0', param);
-        }
+        public void Increment() => param++;
 
         [GlobalCleanup]
         public void DbCleanup()

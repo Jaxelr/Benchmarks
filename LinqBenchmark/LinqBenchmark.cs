@@ -19,7 +19,9 @@ namespace LinqBenchmark
 
         [ArgumentsSource(nameof(InputData))]
         [Benchmark]
+#pragma warning disable CA1827 // We want to test Count versus Any
         public bool CountUsage(IEnumerable<int> list, int value) => list.Count(m => m == value) > 0;
+#pragma warning restore CA1827 // 
 
         [ArgumentsSource(nameof(InputData))]
         [Benchmark]
@@ -33,7 +35,7 @@ namespace LinqBenchmark
         [Benchmark]
         public List<int> WhereUsage(IEnumerable<int> list, int value) => list.Where(m => m == value).ToList();
 
-        public IEnumerable<object[]> InputData()
+        public static IEnumerable<object[]> InputData()
         {
             yield return new object[] { Enumerable.Range(0, 1000), 100 };
             yield return new object[] { Enumerable.Range(0, 10000), 1000 };

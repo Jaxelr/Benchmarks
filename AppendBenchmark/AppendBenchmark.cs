@@ -28,7 +28,7 @@ namespace AppendBenchmark
         [ArgumentsSource(nameof(Arrays))]
         public int[] AppendToList(int[] array, int value) => array.AppendToList(value);
 
-        public IEnumerable<object[]> Arrays()
+        public static IEnumerable<object[]> Arrays()
         {
             yield return new object[] { Enumerable.Range(0, 1000).ToArray(), 4 };
             yield return new object[] { Enumerable.Range(0, 1000).ToArray(), 101 };

@@ -24,7 +24,7 @@ namespace TupleBenchmark
         [ArgumentsSource(nameof(InputData))]
         public ValueTuple<int, string> ValueTuple(int item1, string item2) => (item1, item2);
 
-        public IEnumerable<object[]> InputData()
+        public static IEnumerable<object[]> InputData()
         {
             yield return new object[] { 4, "Random Text" };
             yield return new object[] { 101, new string('X', 20) };
