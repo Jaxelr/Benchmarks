@@ -1,4 +1,4 @@
-name: .NET Core
+name: .NET
 
 on:
   push:
@@ -13,12 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core
+    - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.100
     - name: Build Reason
-      run: echo ${{github.ref}} and ${{github.event_name}}        
+      run: echo ${{github.ref}} and ${{github.event_name}}
     - name: Run Sql Server Image
       run: docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=$SQL_PASSWORD" -p 1433:1433 --name sql-env -d mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
     - name: Install dependencies
@@ -35,7 +35,7 @@ jobs:
        dotnet run --project ./SQLConnectionBenchmark/SQLConnectionBenchmark.csproj --configuration Release
        dotnet run --project ./LinqBenchmark/LinqBenchmark.csproj --configuration Release
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test --no-restore --verbosity quiet
 env:
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
