@@ -10,7 +10,6 @@ updates:
       prefix: "deps"
     open-pull-requests-limit: 5
     labels:
-      - "nuget"
       - "dependencies"
   - package-ecosystem: "nuget"
     directory: "/AppendBenchmark" #AppendBenchmark.csproj
@@ -21,7 +20,6 @@ updates:
       prefix: "deps"
     open-pull-requests-limit: 5
     labels:
-      - "nuget"
       - "dependencies"
   - package-ecosystem: "nuget"
     directory: "/LinqBenchmark" #LinqBenchmark.csproj
@@ -32,7 +30,6 @@ updates:
       prefix: "deps"
     open-pull-requests-limit: 5
     labels:
-      - "nuget"
       - "dependencies"
   - package-ecosystem: "nuget"
     directory: "/ReplaceBenchmark" #ReplaceBenchmark.csproj
@@ -43,7 +40,6 @@ updates:
       prefix: "deps"
     open-pull-requests-limit: 5
     labels:
-      - "nuget"
       - "dependencies"
   - package-ecosystem: "nuget"
     directory: "/TupleBenchmark" #TupleBenchmark.csproj
@@ -54,5 +50,4 @@ updates:
       prefix: "deps"
     open-pull-requests-limit: 5
     labels:
-      - "nuget"
       - "dependencies"
