@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TupleBenchmark", "TupleBenc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqBenchmark", "LinqBenchmark\LinqBenchmark.csproj", "{B883C2E4-28D0-4AA4-8D07-1A44958766C1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvBenchmark", "CsvBenchmark\CsvBenchmark.csproj", "{CA25F70F-6704-4348-A543-93B01277FAEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{B883C2E4-28D0-4AA4-8D07-1A44958766C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B883C2E4-28D0-4AA4-8D07-1A44958766C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B883C2E4-28D0-4AA4-8D07-1A44958766C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA25F70F-6704-4348-A543-93B01277FAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA25F70F-6704-4348-A543-93B01277FAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA25F70F-6704-4348-A543-93B01277FAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA25F70F-6704-4348-A543-93B01277FAEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
