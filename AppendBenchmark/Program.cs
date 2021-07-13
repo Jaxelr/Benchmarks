@@ -4,6 +4,6 @@ namespace AppendBenchmark
 {
     internal static class Program
     {
-        private static void Main() => _ = BenchmarkRunner.Run<AppendBenchmark>();
+        private static void Main() => BenchmarkRunner.Run<AppendBenchmark>();
     }
 }

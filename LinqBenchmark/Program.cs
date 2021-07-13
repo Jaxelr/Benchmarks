@@ -4,6 +4,6 @@ namespace LinqBenchmark
 {
     internal static class Program
     {
-        private static void Main() => _ = BenchmarkRunner.Run<LinqBenchmark>();
+        private static void Main() => BenchmarkRunner.Run<LinqBenchmark>();
     }
 }

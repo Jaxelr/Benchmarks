@@ -4,6 +4,6 @@ namespace ReplaceBenchmark
 {
     internal static class Program
     {
-        private static void Main() => _ = BenchmarkRunner.Run<ReplaceBenchmark>();
+        private static void Main() => BenchmarkRunner.Run<ReplaceBenchmark>();
     }
 }
