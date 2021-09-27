@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".SolutionItems", "{F4301033-3F75-44DE-B47D-EC3356184BF1}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReplaceBenchmark", "ReplaceBenchmark\ReplaceBenchmark.csproj", "{DF11FC57-7635-42F7-BD80-0BCD9D5C760C}"
@@ -21,6 +22,16 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvBenchmark", "CsvBenchmark\CsvBenchmark.csproj", "{CA25F70F-6704-4348-A543-93B01277FAEB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForBenchmark", "ForBenchmark\ForBenchmark.csproj", "{F4E11C78-D407-40C7-91E5-8660AE8984D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{D109ED8C-6435-4AEE-AC21-76307D35FFB7}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{FD266A31-717B-443F-AB74-83CA0A3D2C3A}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\ci.yml = .github\workflows\ci.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +70,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D109ED8C-6435-4AEE-AC21-76307D35FFB7} = {F4301033-3F75-44DE-B47D-EC3356184BF1}
+		{FD266A31-717B-443F-AB74-83CA0A3D2C3A} = {D109ED8C-6435-4AEE-AC21-76307D35FFB7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C4F15B82-6F63-48A3-81A0-FEA1CC77C50F}
