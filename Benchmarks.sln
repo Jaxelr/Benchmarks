@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\ci.yml = .github\workflows\ci.yml
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParallelBenchmark", "ParallelBenchmark\ParallelBenchmark.csproj", "{FAFE97CD-08AB-4924-BE63-109C53824896}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{F4E11C78-D407-40C7-91E5-8660AE8984D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4E11C78-D407-40C7-91E5-8660AE8984D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4E11C78-D407-40C7-91E5-8660AE8984D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAFE97CD-08AB-4924-BE63-109C53824896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAFE97CD-08AB-4924-BE63-109C53824896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAFE97CD-08AB-4924-BE63-109C53824896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAFE97CD-08AB-4924-BE63-109C53824896}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
