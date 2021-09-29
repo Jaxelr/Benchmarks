@@ -21,6 +21,26 @@ updates:
     labels:
       - "dependencies"
   - package-ecosystem: "nuget"
+    directory: "/ForBenchmark" #ForBenchmark.csproj
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    commit-message:
+      prefix: "deps"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+  - package-ecosystem: "nuget"
+    directory: "/CsvBenchmark" #CsvBenchmark.csproj
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    commit-message:
+      prefix: "deps"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+  - package-ecosystem: "nuget"
     directory: "/LinqBenchmark" #LinqBenchmark.csproj
     schedule:
       interval: "weekly"
