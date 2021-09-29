@@ -70,3 +70,13 @@ updates:
     open-pull-requests-limit: 5
     labels:
       - "dependencies"
+  - package-ecosystem: "nuget"
+    directory: "/ParallelBenchmark" #ParallelBenchmark.csproj
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    commit-message:
+      prefix: "deps"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
