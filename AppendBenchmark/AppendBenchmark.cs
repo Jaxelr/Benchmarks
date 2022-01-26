@@ -32,6 +32,8 @@ namespace AppendBenchmark
         {
             yield return new object[] { Enumerable.Range(0, 1000).ToArray(), 4 };
             yield return new object[] { Enumerable.Range(0, 1000).ToArray(), 101 };
+            yield return new object[] { Enumerable.Range(0, 10000).ToArray(), 4 };
+            yield return new object[] { Enumerable.Range(0, 10000).ToArray(), 101 };
         }
     }
 }
