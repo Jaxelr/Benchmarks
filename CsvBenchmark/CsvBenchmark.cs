@@ -51,7 +51,7 @@ namespace CsvBenchmark
             }
         }
 
-        public IEnumerable<List<Example>> Arrays()
+        public static IEnumerable<List<Example>> Arrays()
         {
             yield return CreateList(5_000);
             yield return CreateList(50_000);
