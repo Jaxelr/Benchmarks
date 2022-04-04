@@ -2,26 +2,30 @@
 
 I benchmark multiple implementations of a Rail Fence Cipher.
 
+
 ``` ini
 
-BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18363
+BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19044.1586 (21H2)
 Intel Core i5-5250U CPU 1.60GHz (Broadwell), 1 CPU, 4 logical and 2 physical cores
-.NET Core SDK=3.1.200
-  [Host]   : .NET Core 3.1.2 (CoreCLR 4.700.20.6602, CoreFX 4.700.20.6702), X64 RyuJIT  [AttachedDebugger]
-  ShortRun : .NET Core 3.1.2 (CoreCLR 4.700.20.6602, CoreFX 4.700.20.6702), X64 RyuJIT
+.NET SDK=6.0.201
+  [Host]   : .NET 6.0.3 (6.0.322.12309), X64 RyuJIT
+  ShortRun : .NET 6.0.3 (6.0.322.12309), X64 RyuJIT
 
 Job=ShortRun  IterationCount=3  LaunchCount=1  
 WarmupCount=3  
 
 ```
-|       Method |          array | value |       Mean |      Error |    StdDev | Ratio | RatioSD |   Gen 0 | Gen 1 | Gen 2 | Allocated |
-|------------- |--------------- |------ |-----------:|-----------:|----------:|------:|--------:|--------:|------:|------:|----------:|
-| AppendCopyTo | System.Int32[] |     4 |   609.4 ns |   169.7 ns |   9.30 ns |  0.56 |    0.01 |  2.5702 |     - |     - |   3.94 KB |
-| AppendConcat | System.Int32[] |     4 |   906.9 ns |   267.7 ns |  14.68 ns |  0.83 |    0.02 |  2.6588 |     - |     - |   4.08 KB |
-|       Append | System.Int32[] |     4 | 1,093.4 ns |   184.9 ns |  10.14 ns |  1.00 |    0.00 |  2.5692 |     - |     - |   3.94 KB |
-| AppendToList | System.Int32[] |     4 | 2,538.6 ns | 2,256.5 ns | 123.69 ns |  2.32 |    0.12 | 10.2386 |     - |     - |  15.73 KB |
-|              |                |       |            |            |           |       |         |         |       |       |           |
-| AppendCopyTo | System.Int32[] |   101 |   610.5 ns |   125.2 ns |   6.86 ns |  0.56 |    0.02 |  2.5702 |     - |     - |   3.94 KB |
-| AppendConcat | System.Int32[] |   101 |   891.7 ns |   129.3 ns |   7.09 ns |  0.81 |    0.03 |  2.6588 |     - |     - |   4.08 KB |
-|       Append | System.Int32[] |   101 | 1,097.3 ns |   889.3 ns |  48.75 ns |  1.00 |    0.00 |  2.5692 |     - |     - |   3.94 KB |
-| AppendToList | System.Int32[] |   101 | 2,615.3 ns |   481.9 ns |  26.41 ns |  2.39 |    0.11 | 10.2386 |     - |     - |  15.73 KB |
+|              Method |                value |       Mean |      Error |     StdDev |    Gen 0 | Allocated |
+|-------------------- |--------------------- |-----------:|-----------:|-----------:|---------:|----------:|
+| RailFenceLoopEncode | Rando(...)tween [39] |   2.027 μs |   5.519 μs |  0.3025 μs |   2.0981 |      3 KB |
+| RailFenceLoopDecode | Rotgt(...)ekntn [39] |   8.852 μs |  30.532 μs |  1.6735 μs |   5.1193 |      8 KB |
+| RailFenceLinqEncode | Rando(...)tween [39] |  10.464 μs |  35.950 μs |  1.9705 μs |   4.9591 |      8 KB |
+| RailFenceLinqDecode | Rotgt(...)ekntn [39] |  14.303 μs |  64.914 μs |  3.5582 μs |   5.7678 |      9 KB |
+| RailFenceLoopEncode |  ****(...)**** [500] |  24.832 μs |  52.780 μs |  2.8930 μs |  31.2500 |     48 KB |
+| RailFenceLoopEncode | ****(...)**** [1000] |  47.555 μs | 182.342 μs |  9.9948 μs |  73.4863 |    113 KB |
+| RailFenceLinqEncode |  ****(...)**** [500] |  58.205 μs | 150.284 μs |  8.2376 μs |  23.8037 |     36 KB |
+| RailFenceLoopDecode |  ****(...)**** [500] | 112.833 μs |  19.603 μs |  1.0745 μs | 220.4590 |    338 KB |
+| RailFenceLinqEncode | ****(...)**** [1000] | 116.663 μs | 319.864 μs | 17.5328 μs |  41.9922 |     64 KB |
+| RailFenceLinqDecode |  ****(...)**** [500] | 142.270 μs | 202.089 μs | 11.0772 μs |  25.1465 |     39 KB |
+| RailFenceLoopDecode | ****(...)**** [1000] | 279.989 μs | 216.334 μs | 11.8580 μs | 781.2500 |  1,197 KB |
+| RailFenceLinqDecode | ****(...)**** [1000] | 341.642 μs | 967.818 μs | 53.0494 μs |  43.9453 |     68 KB |
