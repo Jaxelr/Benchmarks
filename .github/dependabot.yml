@@ -80,3 +80,13 @@ updates:
     open-pull-requests-limit: 5
     labels:
       - "dependencies"
+  - package-ecosystem: "nuget"
+    directory: "/RailFenceCipherBenchmark" #RailFenceCipherBenchmark.csproj
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    commit-message:
+      prefix: "deps"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
