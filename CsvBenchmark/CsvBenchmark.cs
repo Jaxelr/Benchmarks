@@ -15,7 +15,7 @@ namespace CsvBenchmark
     [MarkdownExporterAttribute.GitHub]
     public class CsvBenchmark
     {
-        private const string TestFile = "C:\\temp\\test.csv";
+        private const string TestFile = "test.csv";
 
         [Benchmark]
         [ArgumentsSource(nameof(Arrays))]
