@@ -21,7 +21,7 @@ namespace LinqBenchmark
         [Benchmark]
 #pragma warning disable CA1827 // We want to test Count versus Any
         public bool CountUsage(IEnumerable<int> list, int value) => list.Count(m => m == value) > 0;
-#pragma warning restore CA1827 // 
+#pragma warning restore CA1827 //
 
         [ArgumentsSource(nameof(InputData))]
         [Benchmark]
