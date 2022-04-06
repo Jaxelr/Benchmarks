@@ -34,7 +34,6 @@ jobs:
        dotnet run --project ./TupleBenchmark/TupleBenchmark.csproj --configuration Release
        dotnet run --project ./SQLConnectionBenchmark/SQLConnectionBenchmark.csproj --configuration Release
        dotnet run --project ./LinqBenchmark/LinqBenchmark.csproj --configuration Release
-       dotnet run --project ./CsvBenchmark/CsvBenchmark.csproj --configuration Release
        dotnet run --project ./ForBenchmark/ForBenchmark.csproj --configuration Release
        dotnet run --project ./ParallelBenchmark/ParallelBenchmark.csproj --configuration Release
        dotnet run --project ./RailFenceCipherBenchmark/RailFenceCipherBenchmark.csproj --configuration Release
