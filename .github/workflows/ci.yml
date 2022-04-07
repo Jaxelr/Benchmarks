@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -19,26 +18,10 @@ jobs:
         dotnet-version: 6.0.x
     - name: Build Reason
       run: echo ${{github.ref}} and ${{github.event_name}}
-    - name: Run Sql Server Image
-      run: docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=$SQL_PASSWORD" -p 1433:1433 --name sql-env -d mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
     - name: Install dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Sleep
-      run: sleep 10s
-    - name: Benchmark
-      run: |
-       dotnet run --project ./AppendBenchmark/AppendBenchmark.csproj --configuration Release
-       dotnet run --project ./ReplaceBenchmark/ReplaceBenchmark.csproj --configuration Release
-       dotnet run --project ./TupleBenchmark/TupleBenchmark.csproj --configuration Release
-       dotnet run --project ./SQLConnectionBenchmark/SQLConnectionBenchmark.csproj --configuration Release
-       dotnet run --project ./LinqBenchmark/LinqBenchmark.csproj --configuration Release
-       dotnet run --project ./ForBenchmark/ForBenchmark.csproj --configuration Release
-       dotnet run --project ./ParallelBenchmark/ParallelBenchmark.csproj --configuration Release
-       dotnet run --project ./RailFenceCipherBenchmark/RailFenceCipherBenchmark.csproj --configuration Release
 env:
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-  SQL_PASSWORD: P@ssword123
-  SQL_CONNECTION: 'Server=.,1433;Database=master;User Id=sa;Password=$SQL_PASSWORD;'
