@@ -6,7 +6,7 @@ using BenchmarkDotNet.Order;
 namespace LinqBenchmark
 {
     [BenchmarkCategory("Linq")]
-    [CategoriesColumn]
+    [AllStatisticsColumn]
     [MemoryDiagnoser]
     [ShortRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
