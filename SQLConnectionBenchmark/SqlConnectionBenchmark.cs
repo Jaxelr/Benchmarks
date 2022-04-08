@@ -6,8 +6,10 @@ using Dapper;
 
 namespace SQLConnectionBenchmark
 {
+    [BenchmarkCategory("SqlConnection")]
+    [AllStatisticsColumn]
     [MemoryDiagnoser]
-    [ShortRunJob]
+    [LongRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
     [MarkdownExporterAttribute.GitHub]
     public class SqlConnectionBenchmark
