@@ -7,6 +7,7 @@ using BenchmarkDotNet.Order;
 namespace ReplaceBenchmark
 {
     [BenchmarkCategory("Replace")]
+    [AllStatisticsColumn]
     [MemoryDiagnoser]
     [ShortRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
