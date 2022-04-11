@@ -5,6 +5,7 @@ using BenchmarkDotNet.Order;
 namespace RailFenceCipherBenchmark
 {
     [BenchmarkCategory("RailFenceCipher")]
+    [AllStatisticsColumn]
     [MemoryDiagnoser]
     [ShortRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
