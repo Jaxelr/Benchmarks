@@ -7,6 +7,7 @@ using BenchmarkDotNet.Order;
 namespace ParallelBenchmark
 {
     [BenchmarkCategory("Parallel Foreach")]
+    [AllStatisticsColumn]
     [MemoryDiagnoser]
     [ShortRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
