@@ -6,6 +6,7 @@ using BenchmarkDotNet.Order;
 namespace ForBenchmark
 {
     [BenchmarkCategory("For Loops")]
+    [AllStatisticsColumn]
     [MemoryDiagnoser]
     [ShortRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
