@@ -6,6 +6,7 @@ using System.Linq;
 namespace AppendBenchmark
 {
     [BenchmarkCategory("Append")]
+    [AllStatisticsColumn]
     [MemoryDiagnoser]
     [ShortRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
