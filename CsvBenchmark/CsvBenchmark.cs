@@ -9,6 +9,7 @@ using CsvHelper.Configuration;
 namespace CsvBenchmark
 {
     [BenchmarkCategory("Csv")]
+    [AllStatisticsColumn]
     [MemoryDiagnoser]
     [ShortRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
