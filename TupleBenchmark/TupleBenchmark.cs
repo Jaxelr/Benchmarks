@@ -6,6 +6,7 @@ using BenchmarkDotNet.Order;
 namespace TupleBenchmark
 {
     [BenchmarkCategory("Tuple")]
+    [AllStatisticsColumn]
     [MemoryDiagnoser]
     [ShortRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
