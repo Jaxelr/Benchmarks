@@ -35,11 +35,30 @@ namespace LinqBenchmark
         [Benchmark]
         public List<int> WhereUsage(IEnumerable<int> list, int value) => list.Where(m => m == value).ToList();
 
+        public List<string> ConvertAll() => Data.ConvertAll(m => m.Name);
+
+#pragma warning disable RCS1077 // We want to measure ConvertAll versus Select
+        public List<string> Select() => Data.Select(m => m.Name).ToList();
+#pragma warning restore RCS1077 //
+
         public static IEnumerable<object[]> InputData()
         {
             yield return new object[] { Enumerable.Range(0, 1000), 100 };
             yield return new object[] { Enumerable.Range(0, 10000), 1000 };
             yield return new object[] { Enumerable.Range(0, 100000), 10000 };
+        }
+
+        public List<SampleData> Data = new()
+        {
+            new SampleData() { Id = 1, Name = "One" },
+            new SampleData() { Id = 2, Name = "Two" },
+            new SampleData() { Id = 3, Name = "Three" }
+        };
+
+        public class SampleData
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
         }
     }
 }
