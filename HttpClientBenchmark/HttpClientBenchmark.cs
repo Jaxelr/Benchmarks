@@ -15,6 +15,7 @@ namespace HttpBenchmark
     public class HttpBenchmark
     {
         private const string GoogleUrl = "http://www.google.com";
+        private const string CustomHeader = "X-Client-Test";
         private readonly string[] headerValues = new string[] { "Static", "Each", "Factory" };
 
         private readonly HttpClient staticClient = new();
@@ -23,7 +24,7 @@ namespace HttpBenchmark
         public HttpBenchmark()
         {
             var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("X-Client-Test", headerValues[0]);
+            client.DefaultRequestHeaders.Add(CustomHeader, headerValues[0]);
 
             staticClient = client;
 
@@ -40,7 +41,7 @@ namespace HttpBenchmark
         {
             var client = new HttpClient();
 
-            client.DefaultRequestHeaders.Add("X-Client-Test", headerValues[1]);
+            client.DefaultRequestHeaders.Add(CustomHeader, headerValues[1]);
 
             return await client.GetStringAsync(GoogleUrl);
         }
@@ -50,7 +51,7 @@ namespace HttpBenchmark
         {
             var client = httpClientFactory.CreateClient();
 
-            client.DefaultRequestHeaders.Add("X-Client-Test", headerValues[2]);
+            client.DefaultRequestHeaders.Add(CustomHeader, headerValues[2]);
 
             return await client.GetStringAsync(GoogleUrl);
         }
