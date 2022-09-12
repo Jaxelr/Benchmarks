@@ -19,8 +19,8 @@ namespace LinqBenchmark
 
         [ArgumentsSource(nameof(InputData))]
         [Benchmark]
-#pragma warning disable CA1827 // We want to test Count versus Any
         public bool CountUsage(IEnumerable<int> list, int value) => list.Count(m => m == value) > 0;
+
 #pragma warning restore CA1827 //
 
         [ArgumentsSource(nameof(InputData))]
@@ -38,7 +38,9 @@ namespace LinqBenchmark
         public List<string> ConvertAll() => Data.ConvertAll(m => m.Name);
 
 #pragma warning disable RCS1077 // We want to measure ConvertAll versus Select
+
         public List<string> Select() => Data.Select(m => m.Name).ToList();
+
 #pragma warning restore RCS1077 //
 
         public static IEnumerable<object[]> InputData()

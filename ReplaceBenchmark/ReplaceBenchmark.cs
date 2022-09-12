@@ -31,7 +31,7 @@ namespace ReplaceBenchmark
         [ArgumentsSource(nameof(Arrays))]
         public string ReplaceRegexBuilder(string value) => Regex.Replace(value, ".*", string.Empty);
 
-        public static  IEnumerable<object[]> Arrays()
+        public static IEnumerable<object[]> Arrays()
         {
             yield return new object[] { new string('*', 500) };
             yield return new object[] { new string('*', 1000) };
