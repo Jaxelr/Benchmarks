@@ -8,6 +8,7 @@ namespace AppendBenchmark
     [BenchmarkCategory("Append")]
     [AllStatisticsColumn]
     [MemoryDiagnoser]
+    [HideColumns("Q1", "Q3", "Median", "RatioSD")]
     [ShortRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
     [MarkdownExporterAttribute.GitHub]
