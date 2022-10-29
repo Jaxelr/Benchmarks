@@ -7,6 +7,7 @@ namespace TupleBenchmark
 {
     [BenchmarkCategory("Tuple")]
     [AllStatisticsColumn]
+    [HideColumns("Q1", "Q3", "Median", "RatioSD")]
     [MemoryDiagnoser]
     [ShortRunJob]
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
