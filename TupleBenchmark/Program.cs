@@ -1,9 +1,8 @@
 ﻿using BenchmarkDotNet.Running;
 
-namespace TupleBenchmark
+namespace TupleBenchmark;
+
+internal static class Program
 {
-    internal static class Program
-    {
-        private static void Main() => BenchmarkRunner.Run<TupleBenchmark>();
-    }
+    private static void Main() => BenchmarkRunner.Run<TupleBenchmark>();
 }
