@@ -1,9 +1,8 @@
 ﻿using BenchmarkDotNet.Running;
 
-namespace HttpBenchmark
+namespace HttpBenchmark;
+
+internal static class Program
 {
-    internal static class Program
-    {
-        private static void Main() => BenchmarkRunner.Run<HttpBenchmark>();
-    }
+    private static void Main() => BenchmarkRunner.Run<HttpBenchmark>();
 }

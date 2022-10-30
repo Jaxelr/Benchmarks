@@ -4,56 +4,56 @@ using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Order;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace HttpBenchmark
+namespace HttpBenchmark;
+
+[BenchmarkCategory("HttpClient")]
+[AllStatisticsColumn]
+[HideColumns("Q1", "Q3", "Median", "RatioSD")]
+[MemoryDiagnoser]
+[LongRunJob]
+[Orderer(SummaryOrderPolicy.FastestToSlowest)]
+[MarkdownExporterAttribute.GitHub]
+public class HttpBenchmark
 {
-    [BenchmarkCategory("HttpClient")]
-    [AllStatisticsColumn]
-    [MemoryDiagnoser]
-    [LongRunJob]
-    [Orderer(SummaryOrderPolicy.FastestToSlowest)]
-    [MarkdownExporterAttribute.GitHub]
-    public class HttpBenchmark
+    private const string GoogleUrl = "http://www.google.com";
+    private const string CustomHeader = "X-Client-Test";
+    private readonly string[] headerValues = new string[] { "Static", "Each", "Factory" };
+
+    private readonly HttpClient staticClient = new();
+    private readonly IHttpClientFactory httpClientFactory;
+
+    public HttpBenchmark()
     {
-        private const string GoogleUrl = "http://www.google.com";
-        private const string CustomHeader = "X-Client-Test";
-        private readonly string[] headerValues = new string[] { "Static", "Each", "Factory" };
+        var client = new HttpClient();
+        client.DefaultRequestHeaders.Add(CustomHeader, headerValues[0]);
 
-        private readonly HttpClient staticClient = new();
-        private readonly IHttpClientFactory httpClientFactory;
+        staticClient = client;
 
-        public HttpBenchmark()
-        {
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Add(CustomHeader, headerValues[0]);
+        //Client Factory construction
+        var serviceProvider = new ServiceCollection().AddHttpClient().BuildServiceProvider();
+        httpClientFactory = serviceProvider.GetService<IHttpClientFactory>();
+    }
 
-            staticClient = client;
+    [Benchmark]
+    public async Task<string> StaticHttpClient() => await staticClient.GetStringAsync(GoogleUrl);
 
-            //Client Factory construction
-            var serviceProvider = new ServiceCollection().AddHttpClient().BuildServiceProvider();
-            httpClientFactory = serviceProvider.GetService<IHttpClientFactory>();
-        }
+    [Benchmark]
+    public async Task<string> EachHttpClient()
+    {
+        var client = new HttpClient();
 
-        [Benchmark]
-        public async Task<string> StaticHttpClient() => await staticClient.GetStringAsync(GoogleUrl);
+        client.DefaultRequestHeaders.Add(CustomHeader, headerValues[1]);
 
-        [Benchmark]
-        public async Task<string> EachHttpClient()
-        {
-            var client = new HttpClient();
+        return await client.GetStringAsync(GoogleUrl);
+    }
 
-            client.DefaultRequestHeaders.Add(CustomHeader, headerValues[1]);
+    [Benchmark]
+    public async Task<string> HttpClientFactory()
+    {
+        var client = httpClientFactory.CreateClient();
 
-            return await client.GetStringAsync(GoogleUrl);
-        }
+        client.DefaultRequestHeaders.Add(CustomHeader, headerValues[2]);
 
-        [Benchmark]
-        public async Task<string> HttpClientFactory()
-        {
-            var client = httpClientFactory.CreateClient();
-
-            client.DefaultRequestHeaders.Add(CustomHeader, headerValues[2]);
-
-            return await client.GetStringAsync(GoogleUrl);
-        }
+        return await client.GetStringAsync(GoogleUrl);
     }
 }
