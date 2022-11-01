@@ -1,9 +1,8 @@
 ﻿using BenchmarkDotNet.Running;
 
-namespace ParallelBenchmark
+namespace ParallelBenchmark;
+
+internal static class Program
 {
-    internal static class Program
-    {
-        private static void Main() => BenchmarkRunner.Run<ParallelBenchmark>();
-    }
+    private static void Main() => BenchmarkRunner.Run<ParallelBenchmark>();
 }
