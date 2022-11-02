@@ -1,9 +1,8 @@
 ﻿using BenchmarkDotNet.Running;
 
-namespace RailFenceCipherBenchmark
+namespace RailFenceCipherBenchmark;
+
+internal static class Program
 {
-    internal static class Program
-    {
-        private static void Main() => BenchmarkRunner.Run<RailFenceBenchmark>();
-    }
+    private static void Main() => BenchmarkRunner.Run<RailFenceBenchmark>();
 }
