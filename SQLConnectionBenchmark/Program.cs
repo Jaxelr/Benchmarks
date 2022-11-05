@@ -1,9 +1,8 @@
 ﻿using BenchmarkDotNet.Running;
 
-namespace SQLConnectionBenchmark
+namespace SQLConnectionBenchmark;
+
+public class Program
 {
-    public class Program
-    {
-        public static void Main() => BenchmarkRunner.Run(typeof(Program).Assembly);
-    }
+    public static void Main() => BenchmarkRunner.Run(typeof(Program).Assembly);
 }
