@@ -1,9 +1,8 @@
 ﻿using BenchmarkDotNet.Running;
 
-namespace SealedBenchmark
+namespace SealedBenchmark;
+
+internal static class Program
 {
-    internal static class Program
-    {
-        private static void Main() => BenchmarkRunner.Run<SealedBenchmark>();
-    }
+    private static void Main() => BenchmarkRunner.Run<SealedBenchmark>();
 }
