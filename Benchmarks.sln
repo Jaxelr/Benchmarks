@@ -41,6 +41,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientBenchmark", "Http
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SealedBenchmark", "SealedBenchmark\SealedBenchmark.csproj", "{42A3E888-5840-4947-BD1D-4ED291DA168F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{0BDEC6B5-5C30-41C8-A291-522E38BCA65B}"
+	ProjectSection(SolutionItems) = preProject
+		docker\.env = docker\.env
+		docker\build-docker-compose-localhost.md = docker\build-docker-compose-localhost.md
+		docker\docker-compose.yml = docker\docker-compose.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -98,6 +105,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D109ED8C-6435-4AEE-AC21-76307D35FFB7} = {F4301033-3F75-44DE-B47D-EC3356184BF1}
 		{FD266A31-717B-443F-AB74-83CA0A3D2C3A} = {D109ED8C-6435-4AEE-AC21-76307D35FFB7}
+		{0BDEC6B5-5C30-41C8-A291-522E38BCA65B} = {F4301033-3F75-44DE-B47D-EC3356184BF1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C4F15B82-6F63-48A3-81A0-FEA1CC77C50F}
