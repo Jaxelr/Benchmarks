@@ -6,67 +6,66 @@ using BenchmarkDotNet.Order;
 using CsvHelper;
 using CsvHelper.Configuration;
 
-namespace CsvBenchmark
+namespace CsvBenchmark;
+
+[BenchmarkCategory("Csv")]
+[AllStatisticsColumn]
+[MemoryDiagnoser]
+[HideColumns("Q1", "Q3", "Median", "RatioSD")]
+[ShortRunJob]
+[Orderer(SummaryOrderPolicy.FastestToSlowest)]
+[MarkdownExporterAttribute.GitHub]
+public class CsvBenchmark
 {
-    [BenchmarkCategory("Csv")]
-    [AllStatisticsColumn]
-    [MemoryDiagnoser]
-    [HideColumns("Q1", "Q3", "Median", "RatioSD")]
-    [ShortRunJob]
-    [Orderer(SummaryOrderPolicy.FastestToSlowest)]
-    [MarkdownExporterAttribute.GitHub]
-    public class CsvBenchmark
+    private const string TestFile = "test.csv";
+
+    [Benchmark]
+    [ArgumentsSource(nameof(Arrays))]
+    public void GenerateCsv(List<Example> examples)
     {
-        private const string TestFile = "test.csv";
+        using var writer = new StreamWriter(TestFile);
 
-        [Benchmark]
-        [ArgumentsSource(nameof(Arrays))]
-        public void GenerateCsv(List<Example> examples)
+        var config = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
-            using var writer = new StreamWriter(TestFile);
-
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            /* This Assures that all strings types are quoted */
+            ShouldQuote = args =>
             {
-                /* This Assures that all strings types are quoted */
-                ShouldQuote = args =>
+                if (args.FieldType == typeof(string) && args.Row.Row != 1) /* Exclude the header */
                 {
-                    if (args.FieldType == typeof(string) && args.Row.Row != 1) /* Exclude the header */
-                    {
-                        return true;
-                    }
-
-                    return false;
+                    return true;
                 }
-            };
 
-            using var csv = new CsvWriter(writer, config);
-
-            csv.WriteRecords(examples);
-        }
-
-        [IterationCleanup]
-        public static void DeleteExisting()
-        {
-            if (File.Exists(TestFile))
-            {
-                File.Delete(TestFile);
+                return false;
             }
-        }
+        };
 
-        public static IEnumerable<List<Example>> Arrays()
+        using var csv = new CsvWriter(writer, config);
+
+        csv.WriteRecords(examples);
+    }
+
+    [IterationCleanup]
+    public static void DeleteExisting()
+    {
+        if (File.Exists(TestFile))
         {
-            yield return CreateList(5_000);
-            yield return CreateList(50_000);
-            yield return CreateList(100_000);
+            File.Delete(TestFile);
         }
+    }
 
-        public static List<Example> CreateList(int capacity)
-        {
-            var list = new List<Example>(capacity);
-            for (int i = 0; i < capacity; i++)
-                list.Add(new Example() { Id = i, Value = new string('x', i) });
+    public static IEnumerable<List<Example>> Arrays()
+    {
+        yield return CreateList(5_000);
+        yield return CreateList(50_000);
+        yield return CreateList(100_000);
+    }
 
-            return list;
-        }
+    public static List<Example> CreateList(int capacity)
+    {
+        var list = new List<Example>(capacity);
+        for (int i = 0; i < capacity; i++)
+            list.Add(new Example() { Id = i, Value = new string('x', i) });
+
+        return list;
     }
 }

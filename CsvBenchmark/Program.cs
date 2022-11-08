@@ -1,9 +1,8 @@
 ﻿using BenchmarkDotNet.Running;
 
-namespace CsvBenchmark
+namespace CsvBenchmark;
+
+internal static class Program
 {
-    internal static class Program
-    {
-        private static void Main() => BenchmarkRunner.Run<CsvBenchmark>();
-    }
+    private static void Main() => BenchmarkRunner.Run<CsvBenchmark>();
 }
