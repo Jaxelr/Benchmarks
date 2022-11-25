@@ -4,18 +4,18 @@ I'm measuring how costly is the creation of an Http Client per request vs
 
 ``` ini
 
-BenchmarkDotNet=v0.13.2, OS=Windows 11 (10.0.22621.674)
+BenchmarkDotNet=v0.13.2, OS=Windows 11 (10.0.22621.819)
 11th Gen Intel Core i7-1185G7 3.00GHz, 1 CPU, 8 logical and 4 physical cores
-.NET SDK=6.0.402
-  [Host]  : .NET 6.0.10 (6.0.1022.47605), X64 RyuJIT AVX2
-  LongRun : .NET 6.0.10 (6.0.1022.47605), X64 RyuJIT AVX2
+.NET SDK=7.0.100
+  [Host]  : .NET 7.0.0 (7.0.22.51805), X64 RyuJIT AVX2
+  LongRun : .NET 7.0.0 (7.0.22.51805), X64 RyuJIT AVX2
 
 Job=LongRun  IterationCount=100  LaunchCount=3  
 WarmupCount=15  
 
 ```
-|            Method |     Mean |   Error |   StdDev |  StdErr |      Min |      Max |  Op/s | Allocated |
-|------------------ |---------:|--------:|---------:|--------:|---------:|---------:|------:|----------:|
-|  StaticHttpClient | 194.2 ms | 2.85 ms | 14.64 ms | 0.86 ms | 130.0 ms | 229.3 ms | 5.149 | 106.65 KB |
-| HttpClientFactory | 251.7 ms | 3.47 ms | 17.76 ms | 1.04 ms | 211.3 ms | 310.2 ms | 3.973 | 107.65 KB |
-|    EachHttpClient | 380.1 ms | 5.40 ms | 27.81 ms | 1.62 ms | 323.0 ms | 466.7 ms | 2.631 | 126.57 KB |
+|            Method |     Mean |   Error |  StdDev |  StdErr |      Min |      Max |  Op/s | Allocated |
+|------------------ |---------:|--------:|--------:|--------:|---------:|---------:|------:|----------:|
+| HttpClientFactory | 116.8 ms | 0.65 ms | 3.28 ms | 0.19 ms | 108.9 ms | 127.3 ms | 8.564 | 105.97 KB |
+|  StaticHttpClient | 119.5 ms | 0.65 ms | 3.31 ms | 0.20 ms | 112.2 ms | 128.3 ms | 8.368 | 105.27 KB |
+|    EachHttpClient | 253.4 ms | 1.89 ms | 9.54 ms | 0.57 ms | 237.3 ms | 294.5 ms | 3.947 | 123.18 KB |
