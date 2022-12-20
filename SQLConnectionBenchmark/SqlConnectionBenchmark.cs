@@ -25,7 +25,7 @@ public class SqlConnectionBenchmark
         connString = Environment.GetEnvironmentVariable("SQL_CONNECTION");
         if (string.IsNullOrEmpty(connString))
         {
-            connString = "Server=.,1434;database=master;User Id=sa;Password=P@ssword123;MultipleActiveResultSets=true;";
+            connString = "Server=127.0.0.1,1434;database=master;User Id=sa;Password=P@ssword123;MultipleActiveResultSets=true;";
         }
 
         connection = new SqlConnection(connString);
