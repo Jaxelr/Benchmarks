@@ -38,7 +38,6 @@ public class SqlConnectionBenchmark
         using var cn = (new SqlConnection(connString));
 
         _ = cn.Query<int>("SELECT @param", new { param });
-
         _ = cn.Query<string>("SELECT @param", new { param });
     }
 
