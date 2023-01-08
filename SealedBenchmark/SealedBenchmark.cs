@@ -39,11 +39,11 @@ public class SealedBenchmark
 
     [Benchmark]
     [BenchmarkCategory("StaticMethod")]
-    public void Sealed_StaticMethod() => Husky.Walk();
+    static public void  Sealed_StaticMethod() => Husky.Walk();
 
     [Benchmark]
     [BenchmarkCategory("StaticMethod")]
-    public void Open_StaticMethod() => Bear.Walk();
+    static public void Open_StaticMethod() => Bear.Walk();
 
     [Benchmark]
     [BenchmarkCategory("ToString")]
@@ -71,7 +71,7 @@ public class SealedBenchmark
 
     [Benchmark]
     [BenchmarkCategory("Declaration")]
-    public void SealedDeclaredInMethod_VoidMethod()
+    static public void SealedDeclaredInMethod_VoidMethod()
     {
         var husky = new Husky();
         husky.DoNothing();
@@ -79,7 +79,7 @@ public class SealedBenchmark
 
     [Benchmark]
     [BenchmarkCategory("Declaration")]
-    public void OpenDeclaredInMethod_VoidMethod()
+    static public void OpenDeclaredInMethod_VoidMethod()
     {
         var bear = new Bear();
         bear.DoNothing();
