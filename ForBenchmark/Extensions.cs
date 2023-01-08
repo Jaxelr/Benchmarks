@@ -5,7 +5,6 @@ namespace ForBenchmark;
 
 internal static class Extensions
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Roslynator", "RCS1224:Make method an extension method.", Justification = "<Pending>")]
     internal static IEnumerable<int> CustomRange(int from, int to, int inc)
     {
         for (int i = from; i <= to; i += inc)
