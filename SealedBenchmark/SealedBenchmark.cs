@@ -38,14 +38,6 @@ public class SealedBenchmark
     public int Open_IntMethod() => bear.GetAge();
 
     [Benchmark]
-    [BenchmarkCategory("StaticMethod")]
-    static public void  Sealed_StaticMethod() => Husky.Walk();
-
-    [Benchmark]
-    [BenchmarkCategory("StaticMethod")]
-    static public void Open_StaticMethod() => Bear.Walk();
-
-    [Benchmark]
     [BenchmarkCategory("ToString")]
     public string Sealed_ToString() => husky.ToString()!;
 
@@ -68,20 +60,4 @@ public class SealedBenchmark
     [Benchmark]
     [BenchmarkCategory("AddToArray")]
     public void Open_AddToArray() => bears[0] = new Bear();
-
-    [Benchmark]
-    [BenchmarkCategory("Declaration")]
-    static public void SealedDeclaredInMethod_VoidMethod()
-    {
-        var husky = new Husky();
-        husky.DoNothing();
-    }
-
-    [Benchmark]
-    [BenchmarkCategory("Declaration")]
-    static public void OpenDeclaredInMethod_VoidMethod()
-    {
-        var bear = new Bear();
-        bear.DoNothing();
-    }
 }
