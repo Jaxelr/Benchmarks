@@ -41,11 +41,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientBenchmark", "Http
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SealedBenchmark", "SealedBenchmark\SealedBenchmark.csproj", "{42A3E888-5840-4947-BD1D-4ED291DA168F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{0BDEC6B5-5C30-41C8-A291-522E38BCA65B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".docker", ".docker", "{0BDEC6B5-5C30-41C8-A291-522E38BCA65B}"
 	ProjectSection(SolutionItems) = preProject
-		docker\.env = docker\.env
-		docker\build-docker-compose-localhost.md = docker\build-docker-compose-localhost.md
-		docker\docker-compose.yml = docker\docker-compose.yml
+		.docker\.env = .docker\.env
+		.docker\build-docker-compose-localhost.md = .docker\build-docker-compose-localhost.md
+		.docker\docker-compose.yml = .docker\docker-compose.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingBenchmark", "LoggingBenchmark\LoggingBenchmark.csproj", "{80738777-18FF-43B7-BD90-7A78F3BEB440}"
