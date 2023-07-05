@@ -50,6 +50,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".docker", ".docker", "{0BDE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingBenchmark", "LoggingBenchmark\LoggingBenchmark.csproj", "{80738777-18FF-43B7-BD90-7A78F3BEB440}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListBenchmark", "ListBenchmark\ListBenchmark.csproj", "{B22FAC6B-802C-4A77-9F36-F6F97EB885DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,10 @@ Global
 		{80738777-18FF-43B7-BD90-7A78F3BEB440}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80738777-18FF-43B7-BD90-7A78F3BEB440}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80738777-18FF-43B7-BD90-7A78F3BEB440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B22FAC6B-802C-4A77-9F36-F6F97EB885DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B22FAC6B-802C-4A77-9F36-F6F97EB885DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B22FAC6B-802C-4A77-9F36-F6F97EB885DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B22FAC6B-802C-4A77-9F36-F6F97EB885DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
