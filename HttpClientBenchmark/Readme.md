@@ -14,8 +14,8 @@ Job=LongRun  IterationCount=100  LaunchCount=3
 WarmupCount=15  
 
 ```
-|            Method |     Mean |   Error |   StdDev |  StdErr |      Min |      Max |  Op/s | Allocated |
-|------------------ |---------:|--------:|---------:|--------:|---------:|---------:|------:|----------:|
-|  StaticHttpClient | 284.1 ms | 4.45 ms | 22.73 ms | 1.34 ms | 212.9 ms | 348.1 ms | 3.520 | 115.25 KB |
-| HttpClientFactory | 288.0 ms | 4.71 ms | 24.22 ms | 1.42 ms | 213.5 ms | 350.9 ms | 3.472 | 115.26 KB |
-|    EachHttpClient | 402.0 ms | 5.07 ms | 26.22 ms | 1.53 ms | 317.5 ms | 473.7 ms | 2.487 |  134.7 KB |
+|            Method |     Mean |   Error |  StdDev |  StdErr |      Min |      Max |  Op/s | Allocated |
+|------------------ |---------:|--------:|--------:|--------:|---------:|---------:|------:|----------:|
+|  StaticHttpClient | 183.0 ms | 1.62 ms | 8.11 ms | 0.49 ms | 165.9 ms | 205.8 ms | 5.464 | 116.17 KB |
+| HttpClientFactory | 184.7 ms | 1.39 ms | 6.98 ms | 0.42 ms | 168.9 ms | 205.7 ms | 5.414 | 116.64 KB |
+|    EachHttpClient | 311.5 ms | 1.78 ms | 9.01 ms | 0.53 ms | 291.3 ms | 342.4 ms | 3.210 | 134.46 KB |
