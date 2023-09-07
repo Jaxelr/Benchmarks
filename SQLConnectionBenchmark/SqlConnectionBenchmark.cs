@@ -10,7 +10,7 @@ namespace SQLConnectionBenchmark;
 [AllStatisticsColumn]
 [HideColumns("Q1", "Q3", "Median", "RatioSD")]
 [MemoryDiagnoser]
-[LongRunJob]
+[VeryLongRunJob]
 [Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [MarkdownExporterAttribute.GitHub]
 public class SqlConnectionBenchmark
