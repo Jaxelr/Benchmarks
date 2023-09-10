@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="**\MSBuild_Logs\**" />
+    <None Remove="**\BenchmarkDotNet.Artifacts\**" />
+  </ItemGroup>
+</Project>
