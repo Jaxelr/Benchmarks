@@ -6,4 +6,7 @@
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.7" />
   </ItemGroup>
+  <PropertyGroup>
+    <DefaultItemExcludes>$(DefaultItemExcludes);**\MSBuild_Logs\**;**\BenchmarkDotNet.Artifacts\**</DefaultItemExcludes>
+  </PropertyGroup>
 </Project>
