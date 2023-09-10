@@ -52,6 +52,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingBenchmark", "Logging
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListBenchmark", "ListBenchmark\ListBenchmark.csproj", "{B22FAC6B-802C-4A77-9F36-F6F97EB885DB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DictionaryBenchmark", "DictionaryBenchmark\DictionaryBenchmark.csproj", "{347C6306-49E1-4B61-8E79-30F9DED24D19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +112,10 @@ Global
 		{B22FAC6B-802C-4A77-9F36-F6F97EB885DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B22FAC6B-802C-4A77-9F36-F6F97EB885DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B22FAC6B-802C-4A77-9F36-F6F97EB885DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{347C6306-49E1-4B61-8E79-30F9DED24D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347C6306-49E1-4B61-8E79-30F9DED24D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347C6306-49E1-4B61-8E79-30F9DED24D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347C6306-49E1-4B61-8E79-30F9DED24D19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
