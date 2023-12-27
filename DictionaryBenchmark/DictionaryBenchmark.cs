@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
@@ -22,6 +23,7 @@ public class DictionaryBenchmark
     private Dictionary<int, string> plainDictionary;
     private ImmutableDictionary<int, string> immutableDictionary;
     private ReadOnlyDictionary<int, string> readOnlyDictionary;
+    private FrozenDictionary<int, string> frozenDictionary;
 
     [Params(100, 1_000, 10_000)]
     public int Items;
@@ -39,6 +41,7 @@ public class DictionaryBenchmark
         plainDictionary = new Dictionary<int, string>(_items);
         readOnlyDictionary = new ReadOnlyDictionary<int, string>(plainDictionary);
         immutableDictionary = plainDictionary.ToImmutableDictionary();
+        frozenDictionary = plainDictionary.ToFrozenDictionary();
     }
 
     [BenchmarkCategory("Read"), Benchmark(Baseline = true)]
@@ -65,6 +68,15 @@ public class DictionaryBenchmark
         for (int i = 0; i < Items; i++)
         {
             immutableDictionary.TryGetValue(i, out _);
+        }
+    }
+
+    [BenchmarkCategory("Read"), Benchmark]
+    public void ReadFrozenDictionary()
+    {
+        for (int i = 0; i < Items; i++)
+        {
+            frozenDictionary.TryGetValue(i, out _);
         }
     }
 
@@ -97,6 +109,17 @@ public class DictionaryBenchmark
         }
     }
 
+    [BenchmarkCategory("Write"), Benchmark]
+    public void WriteFrozenDictionary()
+    {
+        for (int i = 0; i < Items; i++)
+        {
+            plainDictionary[i] = Guid.NewGuid().ToString();
+        }
+
+        frozenDictionary = plainDictionary.ToFrozenDictionary();
+    }
+
     [BenchmarkCategory("Remove"), Benchmark(Baseline = true)]
     public void RemovePlainDictionary()
     {
@@ -126,6 +149,17 @@ public class DictionaryBenchmark
         }
     }
 
+    [BenchmarkCategory("Remove"), Benchmark]
+    public void RemoveFrozenDictionary()
+    {
+        for (int i = 0; i < Items; i++)
+        {
+            plainDictionary.Remove(i);
+        }
+
+        frozenDictionary = plainDictionary.ToFrozenDictionary();
+    }
+
     [BenchmarkCategory("Add"), Benchmark(Baseline = true)]
     public void AddPlainDictionary()
     {
@@ -153,5 +187,16 @@ public class DictionaryBenchmark
         {
             immutableDictionary = immutableDictionary.Add(i, Guid.NewGuid().ToString());
         }
+    }
+
+    [BenchmarkCategory("Add"), Benchmark]
+    public void AddFrozenDictionary()
+    {
+        for (int i = Items + 1; i < Items * 2; i++)
+        {
+            plainDictionary.Add(i, Guid.NewGuid().ToString());
+        }
+
+        frozenDictionary = plainDictionary.ToFrozenDictionary();
     }
 }
