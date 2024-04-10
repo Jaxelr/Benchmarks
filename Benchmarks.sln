@@ -7,10 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppendBenchmark", "AppendBe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQLConnectionBenchmark", "SQLConnectionBenchmark\SQLConnectionBenchmark.csproj", "{E6532678-1273-461D-8705-ADB66D9656A4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".SolutionItems", "{F4301033-3F75-44DE-B47D-EC3356184BF1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F4301033-3F75-44DE-B47D-EC3356184BF1}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
+		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReplaceBenchmark", "ReplaceBenchmark\ReplaceBenchmark.csproj", "{DF11FC57-7635-42F7-BD80-0BCD9D5C760C}"
