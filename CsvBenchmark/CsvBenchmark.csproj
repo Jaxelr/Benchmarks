@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="32.0.1" />
+    <PackageReference Include="CsvHelper" Version="32.0.2" />
   </ItemGroup>
 </Project>
