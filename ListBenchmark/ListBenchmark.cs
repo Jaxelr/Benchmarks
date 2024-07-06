@@ -16,8 +16,8 @@ public class ListBenchmark
     [Params(100, 10_000)]
     public int Size { get; set; }
 
-    private string smallItem = new string('*', 100);
-    private string largeItem = new string('*', 10_000);
+    private readonly string smallItem = new('*', 100);
+    private readonly string largeItem = new('*', 10_000);
 
     [Benchmark]
     public List<string> AllocateListSmallItem()
