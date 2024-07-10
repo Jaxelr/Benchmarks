@@ -4,28 +4,28 @@ Benchmark for custom loops [as described on this article](https://habr.com/en/po
 
 ```
 
-BenchmarkDotNet v0.13.12, Windows 11 (10.0.22621.3155/22H2/2022Update/SunValley2)
+BenchmarkDotNet v0.13.12, Windows 11 (10.0.22631.3880/23H2/2023Update/SunValley3)
 11th Gen Intel Core i7-1185G7 3.00GHz, 1 CPU, 8 logical and 4 physical cores
-.NET SDK 8.0.200
-  [Host]   : .NET 8.0.2 (8.0.224.6711), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
-  ShortRun : .NET 8.0.2 (8.0.224.6711), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+.NET SDK 8.0.303
+  [Host]   : .NET 8.0.7 (8.0.724.31311), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+  ShortRun : .NET 8.0.7 (8.0.724.31311), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
 
 Job=ShortRun  IterationCount=3  LaunchCount=1  
 WarmupCount=3  
 
 ```
-| Method                        | Increment | Iterations | Mean       | Error      | StdDev    | StdErr    | Min       | Max        | Op/s      | Ratio | Allocated | Alloc Ratio |
-|------------------------------ |---------- |----------- |-----------:|-----------:|----------:|----------:|----------:|-----------:|----------:|------:|----------:|------------:|
-| ForWithIncrementBy1           | 1         | 10000      |   4.479 μs |  1.4503 μs | 0.0795 μs | 0.0459 μs |  4.405 μs |   4.563 μs | 223,280.3 |  1.00 |         - |          NA |
-| ForWithCustomIncrement        | 1         | 10000      |   4.729 μs |  2.7662 μs | 0.1516 μs | 0.0875 μs |  4.621 μs |   4.902 μs | 211,457.2 |  1.06 |         - |          NA |
-| ForeachWithRangeEnumerator    | 1         | 10000      |   7.162 μs |  3.0606 μs | 0.1678 μs | 0.0969 μs |  6.995 μs |   7.330 μs | 139,618.5 |  1.60 |         - |          NA |
-| ForeachWithRangeEnumeratorRaw | 1         | 10000      |   7.787 μs |  9.5556 μs | 0.5238 μs | 0.3024 μs |  7.355 μs |   8.370 μs | 128,421.2 |  1.74 |         - |          NA |
-| ForeachWithEnumerableRange    | 1         | 10000      |   8.974 μs | 15.5670 μs | 0.8533 μs | 0.4926 μs |  8.097 μs |   9.801 μs | 111,426.8 |  2.01 |      40 B |          NA |
-| ForeachWithYieldReturn        | 1         | 10000      |  11.819 μs | 15.1281 μs | 0.8292 μs | 0.4788 μs | 10.931 μs |  12.572 μs |  84,609.0 |  2.64 |      56 B |          NA |
-|                               |           |            |            |            |           |           |           |            |           |       |           |             |
-| ForWithIncrementBy1           | 1         | 100000     |  31.898 μs | 13.7464 μs | 0.7535 μs | 0.4350 μs | 31.311 μs |  32.747 μs |  31,350.4 |  1.00 |         - |          NA |
-| ForWithCustomIncrement        | 1         | 100000     |  32.538 μs |  0.6593 μs | 0.0361 μs | 0.0209 μs | 32.509 μs |  32.578 μs |  30,733.5 |  1.02 |         - |          NA |
-| ForeachWithEnumerableRange    | 1         | 100000     |  66.431 μs | 72.9256 μs | 3.9973 μs | 2.3078 μs | 62.729 μs |  70.670 μs |  15,053.2 |  2.08 |      40 B |          NA |
-| ForeachWithRangeEnumerator    | 1         | 100000     |  71.200 μs | 23.5974 μs | 1.2935 μs | 0.7468 μs | 70.156 μs |  72.647 μs |  14,045.0 |  2.23 |         - |          NA |
-| ForeachWithRangeEnumeratorRaw | 1         | 100000     |  73.959 μs |  9.2430 μs | 0.5066 μs | 0.2925 μs | 73.490 μs |  74.496 μs |  13,521.1 |  2.32 |         - |          NA |
-| ForeachWithYieldReturn        | 1         | 100000     | 100.445 μs | 10.0735 μs | 0.5522 μs | 0.3188 μs | 99.945 μs | 101.038 μs |   9,955.7 |  3.15 |      56 B |          NA |
+| Method                        | Increment | Iterations | Mean      | Error      | StdDev    | StdErr    | Min       | Max       | Op/s      | Ratio | Allocated | Alloc Ratio |
+|------------------------------ |---------- |----------- |----------:|-----------:|----------:|----------:|----------:|----------:|----------:|------:|----------:|------------:|
+| ForWithIncrementBy1           | 1         | 10000      |  3.158 μs |  0.1513 μs | 0.0083 μs | 0.0048 μs |  3.149 μs |  3.166 μs | 316,651.7 |  1.00 |         - |          NA |
+| ForWithCustomIncrement        | 1         | 10000      |  3.242 μs |  0.2527 μs | 0.0139 μs | 0.0080 μs |  3.231 μs |  3.258 μs | 308,451.2 |  1.03 |         - |          NA |
+| ForeachWithEnumerableRange    | 1         | 10000      |  6.342 μs |  1.3932 μs | 0.0764 μs | 0.0441 μs |  6.289 μs |  6.429 μs | 157,687.5 |  2.01 |      40 B |          NA |
+| ForeachWithRangeEnumerator    | 1         | 10000      |  7.159 μs |  6.6907 μs | 0.3667 μs | 0.2117 μs |  6.872 μs |  7.573 μs | 139,675.3 |  2.27 |         - |          NA |
+| ForeachWithRangeEnumeratorRaw | 1         | 10000      |  8.700 μs | 49.1616 μs | 2.6947 μs | 1.5558 μs |  6.798 μs | 11.784 μs | 114,938.3 |  2.76 |         - |          NA |
+| ForeachWithYieldReturn        | 1         | 10000      |  9.781 μs |  0.3531 μs | 0.0194 μs | 0.0112 μs |  9.770 μs |  9.803 μs | 102,238.2 |  3.10 |      56 B |          NA |
+|                               |           |            |           |            |           |           |           |           |           |       |           |             |
+| ForWithIncrementBy1           | 1         | 100000     | 31.444 μs |  3.8687 μs | 0.2121 μs | 0.1224 μs | 31.208 μs | 31.617 μs |  31,802.2 |  1.00 |         - |          NA |
+| ForWithCustomIncrement        | 1         | 100000     | 32.523 μs |  1.2865 μs | 0.0705 μs | 0.0407 μs | 32.475 μs | 32.604 μs |  30,747.4 |  1.03 |         - |          NA |
+| ForeachWithEnumerableRange    | 1         | 100000     | 63.361 μs |  5.1352 μs | 0.2815 μs | 0.1625 μs | 63.095 μs | 63.656 μs |  15,782.6 |  2.02 |      40 B |          NA |
+| ForeachWithRangeEnumerator    | 1         | 100000     | 65.041 μs |  4.7870 μs | 0.2624 μs | 0.1515 μs | 64.879 μs | 65.344 μs |  15,374.8 |  2.07 |         - |          NA |
+| ForeachWithRangeEnumeratorRaw | 1         | 100000     | 68.974 μs | 59.1277 μs | 3.2410 μs | 1.8712 μs | 65.264 μs | 71.253 μs |  14,498.2 |  2.19 |         - |          NA |
+| ForeachWithYieldReturn        | 1         | 100000     | 95.591 μs | 10.8706 μs | 0.5959 μs | 0.3440 μs | 94.926 μs | 96.076 μs |  10,461.3 |  3.04 |      56 B |          NA |
