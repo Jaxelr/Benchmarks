@@ -10,12 +10,12 @@ namespace HttpBenchmark;
 [AllStatisticsColumn]
 [HideColumns("Q1", "Q3", "Median", "RatioSD")]
 [MemoryDiagnoser]
-[LongRunJob]
+[MediumRunJob]
 [Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [MarkdownExporterAttribute.GitHub]
 public class HttpBenchmark
 {
-    private const string GoogleUrl = "http://www.google.com";
+    private const string GoogleUrl = "http://www.msn.com";
     private const string CustomHeader = "X-Client-Test";
     private readonly string[] headerValues = new string[] { "Static", "Each", "Factory" };
 
