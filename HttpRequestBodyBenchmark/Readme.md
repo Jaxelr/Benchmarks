@@ -4,19 +4,19 @@ Measuring whats the best way to read the request body as a huge chunk of bytes
 
 ```
 
-BenchmarkDotNet v0.13.12, Windows 11 (10.0.22621.3155/22H2/2022Update/SunValley2)
+BenchmarkDotNet v0.13.12, Windows 11 (10.0.22631.3880/23H2/2023Update/SunValley3)
 11th Gen Intel Core i7-1185G7 3.00GHz, 1 CPU, 8 logical and 4 physical cores
-.NET SDK 8.0.200
-  [Host]  : .NET 8.0.2 (8.0.224.6711), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
-  LongRun : .NET 8.0.2 (8.0.224.6711), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+.NET SDK 8.0.303
+  [Host]  : .NET 8.0.7 (8.0.724.31311), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+  LongRun : .NET 8.0.7 (8.0.724.31311), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
 
 Job=LongRun  IterationCount=100  LaunchCount=3  
 WarmupCount=15  
 
 ```
-| Method                     | Mean      | Error     | StdDev     | StdErr   | Min       | Max       | Op/s         | Gen0   | Allocated |
-|--------------------------- |----------:|----------:|-----------:|---------:|----------:|----------:|-------------:|-------:|----------:|
-| GetRequestBodyCopy         |  36.06 ns |  1.942 ns |   9.313 ns | 0.583 ns |  24.62 ns |  75.34 ns | 27,727,715.9 | 0.0216 |     136 B |
-| GetRequestBodyRent         |  73.57 ns |  3.107 ns |  15.548 ns | 0.934 ns |  53.04 ns | 131.33 ns | 13,593,251.8 | 0.0216 |     136 B |
-| RunMultipleThreadsBodyRent | 318.01 ns |  6.231 ns |  30.945 ns | 1.873 ns | 275.78 ns | 459.34 ns |  3,144,508.8 | 0.1082 |     680 B |
-| RunMultipleThreadsBodyCopy | 492.35 ns | 29.454 ns | 153.506 ns | 8.863 ns | 209.48 ns | 796.55 ns |  2,031,063.0 | 0.1082 |     680 B |
+| Method                     | Mean      | Error     | StdDev     | StdErr    | Min       | Max         | Op/s         | Gen0   | Allocated |
+|--------------------------- |----------:|----------:|-----------:|----------:|----------:|------------:|-------------:|-------:|----------:|
+| GetRequestBodyCopy         |  30.07 ns |  0.802 ns |   3.948 ns |  0.241 ns |  25.13 ns |    45.46 ns | 33,252,897.1 | 0.0216 |     136 B |
+| GetRequestBodyRent         |  60.21 ns |  1.073 ns |   5.397 ns |  0.323 ns |  50.91 ns |    76.61 ns | 16,609,203.7 | 0.0216 |     136 B |
+| RunMultipleThreadsBodyCopy | 255.00 ns | 12.335 ns |  61.723 ns |  3.709 ns | 174.22 ns |   539.86 ns |  3,921,537.2 | 0.1082 |     680 B |
+| RunMultipleThreadsBodyRent | 605.69 ns | 62.291 ns | 313.984 ns | 18.731 ns | 309.33 ns | 1,279.05 ns |  1,650,999.2 | 0.1082 |     680 B |
