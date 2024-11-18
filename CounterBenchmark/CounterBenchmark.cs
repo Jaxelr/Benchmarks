@@ -9,7 +9,7 @@ namespace CounterBenchmark;
 [HideColumns("Q1", "Q3", "Median", "RatioSD")]
 [MemoryDiagnoser]
 [ExceptionDiagnoser]
-[ShortRunJob]
+[LongRunJob]
 [Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [MarkdownExporterAttribute.GitHub]
 public class CounterBenchmark
