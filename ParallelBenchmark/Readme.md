@@ -4,11 +4,11 @@ Benchmark Parallel foreach scenarios [as described on this article](https://aaro
 
 ```
 
-BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.3194)
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.3476)
 11th Gen Intel Core i7-1185G7 3.00GHz, 1 CPU, 8 logical and 4 physical cores
-.NET SDK 9.0.200
-  [Host]   : .NET 9.0.2 (9.0.225.6610), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
-  ShortRun : .NET 9.0.2 (9.0.225.6610), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+.NET SDK 9.0.201
+  [Host]   : .NET 9.0.3 (9.0.325.11113), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+  ShortRun : .NET 9.0.3 (9.0.325.11113), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
 
 Job=ShortRun  IterationCount=3  LaunchCount=1  
 WarmupCount=3  
@@ -16,5 +16,5 @@ WarmupCount=3
 ```
 | Method          | Mean     | Error    | StdDev    | StdErr    | Min      | Max      | Op/s      | Gen0   | Gen1   | Allocated |
 |---------------- |---------:|---------:|----------:|----------:|---------:|---------:|----------:|-------:|-------:|----------:|
-| ParallelForEach | 5.425 μs | 3.541 μs | 0.1941 μs | 0.1121 μs | 5.228 μs | 5.616 μs | 184,336.8 | 1.7853 | 0.0381 |  10.36 KB |
-| AsParallel      | 8.366 μs | 8.251 μs | 0.4523 μs | 0.2611 μs | 8.033 μs | 8.881 μs | 119,525.4 | 1.4954 | 0.0305 |   9.13 KB |
+| ParallelForEach | 3.914 μs | 4.890 μs | 0.2680 μs | 0.1548 μs | 3.626 μs | 4.157 μs | 255,508.7 | 1.7929 | 0.0305 |   10.4 KB |
+| AsParallel      | 6.565 μs | 2.567 μs | 0.1407 μs | 0.0812 μs | 6.478 μs | 6.727 μs | 152,325.0 | 1.5106 | 0.0305 |   9.13 KB |
