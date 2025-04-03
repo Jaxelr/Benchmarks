@@ -1,0 +1,35 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="NuGet.Config" />
+  </Folder>
+  <Folder Name="/Solution Items/.docker/">
+    <File Path=".docker/.env" />
+    <File Path=".docker/build-docker-compose-localhost.md" />
+    <File Path=".docker/docker-compose.yml" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/">
+    <File Path=".github/dependabot.yml" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/workflows/">
+    <File Path=".github/workflows/ci.yml" />
+  </Folder>
+  <Project Path="AppendBenchmark/AppendBenchmark.csproj" />
+  <Project Path="CounterBenchmark/CounterBenchmark.csproj" />
+  <Project Path="CsvBenchmark/CsvBenchmark.csproj" />
+  <Project Path="DictionaryBenchmark/DictionaryBenchmark.csproj" />
+  <Project Path="ForBenchmark/ForBenchmark.csproj" />
+  <Project Path="HttpClientBenchmark/HttpClientBenchmark.csproj" />
+  <Project Path="HttpRequestBodyBenchmark/HttpRequestBodyBenchmark.csproj" />
+  <Project Path="LinqBenchmark/LinqBenchmark.csproj" />
+  <Project Path="ListBenchmark/ListBenchmark.csproj" />
+  <Project Path="LoggingBenchmark/LoggingBenchmark.csproj" />
+  <Project Path="ParallelBenchmark/ParallelBenchmark.csproj" />
+  <Project Path="RailFenceCipherBenchmark/RailFenceCipherBenchmark.csproj" />
+  <Project Path="ReplaceBenchmark/ReplaceBenchmark.csproj" />
+  <Project Path="SealedBenchmark/SealedBenchmark.csproj" />
+  <Project Path="SQLConnectionBenchmark/SQLConnectionBenchmark.csproj" />
+  <Project Path="TupleBenchmark/TupleBenchmark.csproj" />
+</Solution>
