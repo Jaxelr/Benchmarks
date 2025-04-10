@@ -4,17 +4,17 @@ This is a benchmark counter for the round robin counts we use to select instance
 
 ```
 
-BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.3476)
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.3775)
 11th Gen Intel Core i7-1185G7 3.00GHz, 1 CPU, 8 logical and 4 physical cores
-.NET SDK 9.0.201
-  [Host]  : .NET 9.0.3 (9.0.325.11113), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
-  LongRun : .NET 9.0.3 (9.0.325.11113), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+.NET SDK 9.0.203
+  [Host]  : .NET 9.0.4 (9.0.425.16305), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+  LongRun : .NET 9.0.4 (9.0.425.16305), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
 
 Job=LongRun  IterationCount=100  LaunchCount=3  
 WarmupCount=15  
 
 ```
-| Method               | Mean      | Error     | StdDev    | StdErr    | Min       | Max       | Op/s              | Exceptions | Allocated |
-|--------------------- |----------:|----------:|----------:|----------:|----------:|----------:|------------------:|-----------:|----------:|
-| Increment            | 0.0049 ns | 0.0017 ns | 0.0085 ns | 0.0005 ns | 0.0000 ns | 0.0427 ns | 205,165,608,454.8 |          - |         - |
-| IncrementInterlocked | 3.5771 ns | 0.0387 ns | 0.1911 ns | 0.0116 ns | 3.3670 ns | 4.2813 ns |     279,555,474.1 |          - |         - |
+| Method               | Mean      | Error     | StdDev    | StdErr    | Min       | Max       | Op/s             | Exceptions | Allocated |
+|--------------------- |----------:|----------:|----------:|----------:|----------:|----------:|-----------------:|-----------:|----------:|
+| Increment            | 0.0631 ns | 0.0115 ns | 0.0576 ns | 0.0034 ns | 0.0000 ns | 0.2041 ns | 15,855,205,371.3 |          - |         - |
+| IncrementInterlocked | 3.4528 ns | 0.0165 ns | 0.0841 ns | 0.0050 ns | 3.3590 ns | 3.8873 ns |    289,621,147.9 |          - |         - |
