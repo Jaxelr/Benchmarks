@@ -4,17 +4,17 @@ I needed to measure how much impact adding multiple usings add, instead of recyc
 
 ```
 
-BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.3476)
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.3775)
 11th Gen Intel Core i7-1185G7 3.00GHz, 1 CPU, 8 logical and 4 physical cores
-.NET SDK 9.0.201
-  [Host]      : .NET 9.0.3 (9.0.325.11113), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
-  VeryLongRun : .NET 9.0.3 (9.0.325.11113), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+.NET SDK 9.0.203
+  [Host]      : .NET 9.0.4 (9.0.425.16305), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+  VeryLongRun : .NET 9.0.4 (9.0.425.16305), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
 
 Job=VeryLongRun  InvocationCount=1  IterationCount=500  
 LaunchCount=4  UnrollFactor=1  WarmupCount=30  
 
 ```
-| Method                | Mean     | Error     | StdDev   | StdErr    | Min       | Max       | Op/s  | Allocated |
-|---------------------- |---------:|----------:|---------:|----------:|----------:|----------:|------:|----------:|
-| WithoutUsingExecution | 1.092 ms | 0.0918 ms | 1.173 ms | 0.0278 ms | 0.2019 ms |  6.908 ms | 916.0 |   5.18 KB |
-| WithUsingExecution    | 3.152 ms | 0.2652 ms | 3.443 ms | 0.0805 ms | 0.3157 ms | 22.058 ms | 317.3 |   7.86 KB |
+| Method                | Mean     | Error   | StdDev    | StdErr  | Min      | Max      | Op/s    | Allocated |
+|---------------------- |---------:|--------:|----------:|--------:|---------:|---------:|--------:|----------:|
+| WithoutUsingExecution | 246.0 μs | 5.20 μs |  68.06 μs | 1.58 μs | 140.6 μs | 514.5 μs | 4,065.0 |   5.46 KB |
+| WithUsingExecution    | 361.1 μs | 8.89 μs | 117.14 μs | 2.70 μs | 210.3 μs | 875.4 μs | 2,769.0 |   8.23 KB |
