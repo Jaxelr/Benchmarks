@@ -4,24 +4,24 @@ This is a benchmark test using the different replace methods for a string.
 
 ```
 
-BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.3775)
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.4202)
 11th Gen Intel Core i7-1185G7 3.00GHz, 1 CPU, 8 logical and 4 physical cores
-.NET SDK 9.0.203
-  [Host]   : .NET 9.0.4 (9.0.425.16305), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
-  ShortRun : .NET 9.0.4 (9.0.425.16305), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+.NET SDK 9.0.300
+  [Host]   : .NET 9.0.5 (9.0.525.21509), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+  ShortRun : .NET 9.0.5 (9.0.525.21509), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
 
 Job=ShortRun  IterationCount=3  LaunchCount=1  
 WarmupCount=3  
 
 ```
-| Method               | value                | Mean         | Error        | StdDev     | StdErr     | Min          | Max          | Op/s         | Gen0   | Allocated |
-|--------------------- |--------------------- |-------------:|-------------:|-----------:|-----------:|-------------:|-------------:|-------------:|-------:|----------:|
-| ReplaceString        | Rando(...)tween [39] |     94.02 ns |     31.16 ns |   1.708 ns |   0.986 ns |     92.70 ns |     95.95 ns | 10,635,780.3 | 0.0153 |      96 B |
-| ReplaceRegexBuilder  | ****(...)**** [1000] |    168.77 ns |    258.04 ns |  14.144 ns |   8.166 ns |    155.01 ns |    183.27 ns |  5,925,228.0 |      - |         - |
-| ReplaceRegexBuilder  | Rando(...)tween [39] |    171.73 ns |    444.39 ns |  24.359 ns |  14.064 ns |    155.87 ns |    199.78 ns |  5,823,164.8 |      - |         - |
-| ReplaceStringBuilder | Rando(...)tween [39] |    175.90 ns |    343.51 ns |  18.829 ns |  10.871 ns |    154.17 ns |    187.52 ns |  5,685,164.5 | 0.0393 |     248 B |
-| ReplaceRegexBuilder  | ****(...)**** [500]  |    207.23 ns |    157.38 ns |   8.626 ns |   4.980 ns |    198.86 ns |    216.09 ns |  4,825,648.4 |      - |         - |
-| ReplaceString        | ****(...)**** [500]  |  9,215.63 ns |  5,121.90 ns | 280.749 ns | 162.090 ns |  8,898.43 ns |  9,432.16 ns |    108,511.3 |      - |      24 B |
-| ReplaceStringBuilder | ****(...)**** [500]  | 10,353.89 ns |  1,651.67 ns |  90.534 ns |  52.270 ns | 10,259.19 ns | 10,439.59 ns |     96,582.0 | 0.1678 |    1072 B |
-| ReplaceString        | ****(...)**** [1000] | 15,357.47 ns | 13,323.96 ns | 730.331 ns | 421.657 ns | 14,930.22 ns | 16,200.76 ns |     65,114.9 |      - |      24 B |
-| ReplaceStringBuilder | ****(...)**** [1000] | 16,665.41 ns |  9,997.22 ns | 547.981 ns | 316.377 ns | 16,268.18 ns | 17,290.57 ns |     60,004.5 | 0.3052 |    2072 B |
+| Method               | value                | Mean        | Error        | StdDev    | StdErr    | Min         | Max         | Op/s        | Gen0   | Allocated |
+|--------------------- |--------------------- |------------:|-------------:|----------:|----------:|------------:|------------:|------------:|-------:|----------:|
+| ReplaceString        | Rando(...)tween [39] |    105.8 ns |     41.43 ns |   2.27 ns |   1.31 ns |    104.1 ns |    108.4 ns | 9,450,176.2 | 0.0153 |      96 B |
+| ReplaceRegexBuilder  | ****(...)**** [500]  |    162.4 ns |    178.53 ns |   9.79 ns |   5.65 ns |    156.7 ns |    173.7 ns | 6,159,482.0 |      - |         - |
+| ReplaceRegexBuilder  | ****(...)**** [1000] |    204.9 ns |    310.76 ns |  17.03 ns |   9.83 ns |    193.3 ns |    224.4 ns | 4,880,666.2 |      - |         - |
+| ReplaceStringBuilder | Rando(...)tween [39] |    228.7 ns |    448.46 ns |  24.58 ns |  14.19 ns |    210.7 ns |    256.7 ns | 4,372,855.4 | 0.0393 |     248 B |
+| ReplaceRegexBuilder  | Rando(...)tween [39] |    238.9 ns |    281.77 ns |  15.44 ns |   8.92 ns |    222.0 ns |    252.2 ns | 4,185,286.7 |      - |         - |
+| ReplaceStringBuilder | ****(...)**** [500]  |  7,247.4 ns |  1,836.53 ns | 100.67 ns |  58.12 ns |  7,137.6 ns |  7,335.3 ns |   137,979.6 | 0.1678 |    1072 B |
+| ReplaceString        | ****(...)**** [500]  |  7,250.8 ns |  4,246.29 ns | 232.75 ns | 134.38 ns |  6,996.1 ns |  7,452.4 ns |   137,915.5 |      - |      24 B |
+| ReplaceString        | ****(...)**** [1000] | 14,262.5 ns |  6,769.77 ns | 371.07 ns | 214.24 ns | 13,856.5 ns | 14,584.1 ns |    70,114.2 |      - |      24 B |
+| ReplaceStringBuilder | ****(...)**** [1000] | 17,888.4 ns | 11,576.60 ns | 634.55 ns | 366.36 ns | 17,181.3 ns | 18,408.2 ns |    55,902.2 | 0.3052 |    2072 B |
