@@ -14,12 +14,12 @@ Job=ShortRun  IterationCount=3  LaunchCount=1
 WarmupCount=3  
 
 ```
-| Method     | item1 | item2                | Mean     | Error     | StdDev    | StdErr    | Min      | Max      | Op/s          | Ratio | Gen0   | Allocated | Alloc Ratio |
-|----------- |------ |--------------------- |---------:|----------:|----------:|----------:|---------:|---------:|--------------:|------:|-------:|----------:|------------:|
-| ValueTuple | 4     | Random Text          | 1.319 ns |  1.515 ns | 0.0831 ns | 0.0480 ns | 1.224 ns | 1.377 ns | 758,216,569.7 |  0.75 |      - |         - |          NA |
-| TupleSruct | 4     | Random Text          | 1.987 ns | 16.432 ns | 0.9007 ns | 0.5200 ns | 1.419 ns | 3.025 ns | 503,363,544.5 |  1.12 |      - |         - |          NA |
-| TupleClass | 4     | Random Text          | 6.720 ns | 18.579 ns | 1.0184 ns | 0.5880 ns | 5.574 ns | 7.522 ns | 148,817,256.4 |  3.80 | 0.0051 |      32 B |          NA |
-|            |       |                      |          |           |           |           |          |          |               |       |        |           |             |
-| TupleSruct | 101   | XXXXXXXXXXXXXXXXXXXX | 1.115 ns |  3.037 ns | 0.1664 ns | 0.0961 ns | 1.017 ns | 1.307 ns | 896,950,840.1 |  1.01 |      - |         - |          NA |
-| ValueTuple | 101   | XXXXXXXXXXXXXXXXXXXX | 1.517 ns |  2.876 ns | 0.1576 ns | 0.0910 ns | 1.366 ns | 1.681 ns | 658,990,292.1 |  1.38 |      - |         - |          NA |
-| TupleClass | 101   | XXXXXXXXXXXXXXXXXXXX | 6.209 ns | 24.040 ns | 1.3177 ns | 0.7608 ns | 5.097 ns | 7.665 ns | 161,054,754.1 |  5.65 | 0.0051 |      32 B |          NA |
+| Method     | item1 | item2                | Mean     | Error      | StdDev    | StdErr    | Min      | Max      | Op/s          | Ratio | Gen0   | Allocated | Alloc Ratio |
+|----------- |------ |--------------------- |---------:|-----------:|----------:|----------:|---------:|---------:|--------------:|------:|-------:|----------:|------------:|
+| ValueTuple | 4     | Random Text          | 1.761 ns |  0.0542 ns | 0.0030 ns | 0.0017 ns | 1.758 ns | 1.764 ns | 567,706,615.9 |  0.71 |      - |         - |          NA |
+| TupleSruct | 4     | Random Text          | 2.477 ns |  3.6230 ns | 0.1986 ns | 0.1147 ns | 2.266 ns | 2.661 ns | 403,641,520.4 |  1.00 |      - |         - |          NA |
+| TupleClass | 4     | Random Text          | 7.495 ns | 18.2104 ns | 0.9982 ns | 0.5763 ns | 6.353 ns | 8.201 ns | 133,420,611.0 |  3.04 | 0.0051 |      32 B |          NA |
+|            |       |                      |          |            |           |           |          |          |               |       |        |           |             |
+| ValueTuple | 101   | XXXXXXXXXXXXXXXXXXXX | 1.816 ns |  0.5467 ns | 0.0300 ns | 0.0173 ns | 1.798 ns | 1.851 ns | 550,646,170.3 |  0.99 |      - |         - |          NA |
+| TupleSruct | 101   | XXXXXXXXXXXXXXXXXXXX | 1.840 ns |  0.2089 ns | 0.0114 ns | 0.0066 ns | 1.828 ns | 1.851 ns | 543,471,261.8 |  1.00 |      - |         - |          NA |
+| TupleClass | 101   | XXXXXXXXXXXXXXXXXXXX | 5.132 ns |  1.9723 ns | 0.1081 ns | 0.0624 ns | 5.048 ns | 5.254 ns | 194,871,153.8 |  2.79 | 0.0051 |      32 B |          NA |
