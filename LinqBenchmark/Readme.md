@@ -4,30 +4,30 @@ This is a benchmark test using different types of methods for a list of integers
 
 ```
 
-BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.4349)
-11th Gen Intel Core i7-1185G7 3.00GHz, 1 CPU, 8 logical and 4 physical cores
-.NET SDK 9.0.301
-  [Host]   : .NET 9.0.6 (9.0.625.26613), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
-  ShortRun : .NET 9.0.6 (9.0.625.26613), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+BenchmarkDotNet v0.15.2, Windows 11 (10.0.26100.4652/24H2/2024Update/HudsonValley)
+Unknown processor
+.NET SDK 9.0.302
+  [Host]   : .NET 9.0.7 (9.0.725.31616), Arm64 RyuJIT AdvSIMD
+  ShortRun : .NET 9.0.7 (9.0.725.31616), Arm64 RyuJIT AdvSIMD
 
 Job=ShortRun  IterationCount=3  LaunchCount=1  
 WarmupCount=3  
 
 ```
-| Method      | list                 | value | Mean         | Error         | StdDev      | StdErr      | Min          | Max          | Op/s        | Gen0   | Allocated |
-|------------ |--------------------- |------ |-------------:|--------------:|------------:|------------:|-------------:|-------------:|------------:|-------:|----------:|
-| FirstUsage  | Syste(...)rator [36] | 100   |     151.7 ns |      51.71 ns |     2.83 ns |     1.64 ns |     149.0 ns |     154.6 ns | 6,592,680.5 | 0.0203 |     128 B |
-| AnyUsage    | Syste(...)rator [36] | 100   |     153.8 ns |     136.65 ns |     7.49 ns |     4.32 ns |     147.9 ns |     162.2 ns | 6,502,767.7 | 0.0203 |     128 B |
-| SingleUsage | Syste(...)rator [36] | 100   |     900.9 ns |   1,731.62 ns |    94.92 ns |    54.80 ns |     843.3 ns |   1,010.4 ns | 1,110,013.6 | 0.0200 |     128 B |
-| AnyUsage    | Syste(...)rator [36] | 1000  |   1,061.0 ns |      58.44 ns |     3.20 ns |     1.85 ns |   1,058.5 ns |   1,064.6 ns |   942,493.9 | 0.0191 |     128 B |
-| FirstUsage  | Syste(...)rator [36] | 1000  |   1,062.1 ns |     172.23 ns |     9.44 ns |     5.45 ns |   1,051.3 ns |   1,068.6 ns |   941,505.1 | 0.0191 |     128 B |
-| WhereUsage  | Syste(...)rator [36] | 100   |   1,106.3 ns |     421.13 ns |    23.08 ns |    13.33 ns |   1,083.3 ns |   1,129.5 ns |   903,926.2 | 0.0381 |     248 B |
-| CountUsage  | Syste(...)rator [36] | 100   |   1,202.9 ns |     153.90 ns |     8.44 ns |     4.87 ns |   1,195.4 ns |   1,212.0 ns |   831,315.6 | 0.0191 |     128 B |
-| SingleUsage | Syste(...)rator [36] | 1000  |   8,053.1 ns |   2,737.17 ns |   150.03 ns |    86.62 ns |   7,949.7 ns |   8,225.2 ns |   124,175.8 | 0.0153 |     128 B |
-| CountUsage  | Syste(...)rator [36] | 1000  |  10,332.5 ns |     600.19 ns |    32.90 ns |    18.99 ns |  10,294.5 ns |  10,353.1 ns |    96,782.3 | 0.0153 |     128 B |
-| WhereUsage  | Syste(...)rator [36] | 1000  |  10,406.7 ns |   1,130.99 ns |    61.99 ns |    35.79 ns |  10,353.2 ns |  10,474.6 ns |    96,092.3 | 0.0305 |     248 B |
-| FirstUsage  | Syste(...)rator [36] | 10000 |  10,434.0 ns |   4,177.30 ns |   228.97 ns |   132.20 ns |  10,252.2 ns |  10,691.2 ns |    95,840.2 | 0.0153 |     128 B |
-| AnyUsage    | Syste(...)rator [36] | 10000 |  12,734.1 ns |  53,670.22 ns | 2,941.85 ns | 1,698.48 ns |  11,011.0 ns |  16,130.9 ns |    78,529.4 | 0.0153 |     128 B |
-| CountUsage  | Syste(...)rator [36] | 10000 | 102,804.7 ns |  13,611.92 ns |   746.12 ns |   430.77 ns | 101,943.5 ns | 103,255.4 ns |     9,727.2 |      - |     128 B |
-| WhereUsage  | Syste(...)rator [36] | 10000 | 107,687.1 ns |  35,493.02 ns | 1,945.49 ns | 1,123.23 ns | 105,517.5 ns | 109,276.6 ns |     9,286.2 |      - |     248 B |
-| SingleUsage | Syste(...)rator [36] | 10000 | 405,086.2 ns | 176,868.41 ns | 9,694.75 ns | 5,597.27 ns | 395,234.1 ns | 414,615.5 ns |     2,468.6 |      - |     128 B |
+| Method      | list                 | value | Mean         | Error         | StdDev       | StdErr      | Min          | Max          | Op/s        | Gen0   | Allocated |
+|------------ |--------------------- |------ |-------------:|--------------:|-------------:|------------:|-------------:|-------------:|------------:|-------:|----------:|
+| FirstUsage  | Syste(...)rator [36] | 100   |     214.4 ns |      39.58 ns |      2.17 ns |     1.25 ns |     212.3 ns |     216.6 ns | 4,663,457.3 | 0.0305 |     128 B |
+| AnyUsage    | Syste(...)rator [36] | 100   |     219.9 ns |     152.53 ns |      8.36 ns |     4.83 ns |     211.7 ns |     228.4 ns | 4,547,322.3 | 0.0305 |     128 B |
+| AnyUsage    | Syste(...)rator [36] | 1000  |   1,833.8 ns |     211.74 ns |     11.61 ns |     6.70 ns |   1,822.2 ns |   1,845.4 ns |   545,313.1 | 0.0305 |     128 B |
+| SingleUsage | Syste(...)rator [36] | 100   |   1,850.8 ns |     577.66 ns |     31.66 ns |    18.28 ns |   1,829.4 ns |   1,887.2 ns |   540,311.9 | 0.0305 |     128 B |
+| FirstUsage  | Syste(...)rator [36] | 1000  |   1,857.2 ns |     332.34 ns |     18.22 ns |    10.52 ns |   1,836.3 ns |   1,870.2 ns |   538,455.2 | 0.0305 |     128 B |
+| WhereUsage  | Syste(...)rator [36] | 100   |   1,864.9 ns |     374.02 ns |     20.50 ns |    11.84 ns |   1,847.0 ns |   1,887.3 ns |   536,227.5 | 0.0591 |     248 B |
+| CountUsage  | Syste(...)rator [36] | 100   |   1,894.6 ns |     509.26 ns |     27.91 ns |    16.12 ns |   1,877.0 ns |   1,926.8 ns |   527,814.3 | 0.0305 |     128 B |
+| CountUsage  | Syste(...)rator [36] | 1000  |  18,055.6 ns |     352.89 ns |     19.34 ns |    11.17 ns |  18,034.5 ns |  18,072.4 ns |    55,384.4 | 0.0305 |     128 B |
+| AnyUsage    | Syste(...)rator [36] | 10000 |  18,110.2 ns |   2,323.49 ns |    127.36 ns |    73.53 ns |  18,028.6 ns |  18,257.0 ns |    55,217.5 | 0.0305 |     128 B |
+| WhereUsage  | Syste(...)rator [36] | 1000  |  18,350.8 ns |   9,173.66 ns |    502.84 ns |   290.31 ns |  18,037.4 ns |  18,930.8 ns |    54,493.5 | 0.0305 |     248 B |
+| FirstUsage  | Syste(...)rator [36] | 10000 |  18,495.3 ns |   9,562.36 ns |    524.15 ns |   302.62 ns |  18,043.7 ns |  19,070.1 ns |    54,067.8 | 0.0305 |     128 B |
+| SingleUsage | Syste(...)rator [36] | 1000  |  18,820.1 ns |   6,869.30 ns |    376.53 ns |   217.39 ns |  18,584.8 ns |  19,254.4 ns |    53,134.7 | 0.0305 |     128 B |
+| CountUsage  | Syste(...)rator [36] | 10000 | 189,466.4 ns | 124,758.55 ns |  6,838.44 ns | 3,948.17 ns | 182,849.2 ns | 196,506.5 ns |     5,278.0 |      - |     128 B |
+| WhereUsage  | Syste(...)rator [36] | 10000 | 191,029.6 ns | 282,230.81 ns | 15,470.02 ns | 8,931.62 ns | 180,867.0 ns | 208,833.4 ns |     5,234.8 |      - |     248 B |
+| SingleUsage | Syste(...)rator [36] | 10000 | 437,137.7 ns |  39,018.20 ns |  2,138.72 ns | 1,234.79 ns | 434,670.9 ns | 438,473.2 ns |     2,287.6 |      - |     128 B |
