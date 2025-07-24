@@ -4,27 +4,27 @@ I benchmark multiple implementations of a Rail Fence Cipher.
 
 ```
 
-BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.4349)
-11th Gen Intel Core i7-1185G7 3.00GHz, 1 CPU, 8 logical and 4 physical cores
-.NET SDK 9.0.301
-  [Host]   : .NET 9.0.6 (9.0.625.26613), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
-  ShortRun : .NET 9.0.6 (9.0.625.26613), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+BenchmarkDotNet v0.15.2, Windows 11 (10.0.26100.4652/24H2/2024Update/HudsonValley)
+Unknown processor
+.NET SDK 9.0.302
+  [Host]   : .NET 9.0.7 (9.0.725.31616), Arm64 RyuJIT AdvSIMD
+  ShortRun : .NET 9.0.7 (9.0.725.31616), Arm64 RyuJIT AdvSIMD
 
 Job=ShortRun  IterationCount=3  LaunchCount=1  
 WarmupCount=3  
 
 ```
-| Method              | value                | Mean         | Error        | StdDev      | StdErr      | Min         | Max          | Op/s        | Gen0     | Gen1   | Allocated  |
-|-------------------- |--------------------- |-------------:|-------------:|------------:|------------:|------------:|-------------:|------------:|---------:|-------:|-----------:|
-| RailFenceLoopEncode | Rando(...)tween [39] |     574.0 ns |     465.5 ns |    25.52 ns |    14.73 ns |    546.3 ns |     596.4 ns | 1,742,105.0 |   0.4854 | 0.0019 |    2.98 KB |
-| RailFenceLoopDecode | Rotgt(...)ekntn [39] |   1,656.6 ns |     776.8 ns |    42.58 ns |    24.58 ns |  1,610.5 ns |   1,694.6 ns |   603,653.5 |   1.2455 | 0.0038 |    7.63 KB |
-| RailFenceLinqEncode | Rando(...)tween [39] |   2,058.6 ns |     378.7 ns |    20.76 ns |    11.98 ns |  2,036.1 ns |   2,076.9 ns |   485,756.8 |   1.0490 | 0.0114 |    6.45 KB |
-| RailFenceLinqDecode | Rotgt(...)ekntn [39] |   3,060.3 ns |   2,057.5 ns |   112.78 ns |    65.11 ns |  2,952.7 ns |   3,177.6 ns |   326,769.4 |   1.2703 | 0.0191 |     7.8 KB |
-| RailFenceLoopEncode | ****(...)**** [500]  |   6,428.5 ns |  12,073.3 ns |   661.78 ns |   382.08 ns |  5,905.0 ns |   7,172.3 ns |   155,558.2 |   6.0120 | 0.0610 |   36.84 KB |
-| RailFenceLoopEncode | ****(...)**** [1000] |  10,627.0 ns |   1,935.4 ns |   106.08 ns |    61.25 ns | 10,504.6 ns |  10,690.8 ns |    94,099.8 |  14.6637 | 0.2594 |   89.89 KB |
-| RailFenceLinqEncode | ****(...)**** [500]  |  23,605.9 ns |  20,718.6 ns | 1,135.65 ns |   655.67 ns | 22,457.3 ns |  24,728.2 ns |    42,362.4 |   3.9978 | 0.1526 |   24.49 KB |
-| RailFenceLinqEncode | ****(...)**** [1000] |  28,464.8 ns |   6,360.9 ns |   348.66 ns |   201.30 ns | 28,129.9 ns |  28,825.8 ns |    35,131.1 |   6.6223 | 0.4883 |   40.67 KB |
-| RailFenceLinqDecode | ****(...)**** [500]  |  28,636.3 ns |   8,935.8 ns |   489.80 ns |   282.79 ns | 28,071.4 ns |  28,943.8 ns |    34,920.8 |   5.5542 | 0.3052 |   34.13 KB |
-| RailFenceLoopDecode | ****(...)**** [500]  |  32,285.2 ns |  10,431.3 ns |   571.77 ns |   330.11 ns | 31,750.3 ns |  32,887.8 ns |    30,974.0 |  53.3447 | 0.4272 |  327.02 KB |
-| RailFenceLinqDecode | ****(...)**** [1000] |  57,383.9 ns |   3,103.4 ns |   170.11 ns |    98.21 ns | 57,249.5 ns |  57,575.2 ns |    17,426.5 |   9.6436 | 0.9155 |    59.2 KB |
-| RailFenceLoopDecode | ****(...)**** [1000] | 102,494.1 ns | 140,485.9 ns | 7,700.51 ns | 4,445.89 ns | 96,731.3 ns | 111,239.8 ns |     9,756.7 | 191.6504 | 2.1973 | 1174.66 KB |
+| Method              | value                | Mean        | Error        | StdDev      | StdErr      | Min         | Max         | Op/s        | Gen0     | Gen1   | Allocated  |
+|-------------------- |--------------------- |------------:|-------------:|------------:|------------:|------------:|------------:|------------:|---------:|-------:|-----------:|
+| RailFenceLoopEncode | Rando(...)tween [39] |    399.3 ns |     40.43 ns |     2.22 ns |     1.28 ns |    397.0 ns |    401.4 ns | 2,504,265.5 |   0.7286 |      - |    2.98 KB |
+| RailFenceLoopDecode | Rotgt(...)ekntn [39] |  1,281.3 ns |    103.23 ns |     5.66 ns |     3.27 ns |  1,277.2 ns |  1,287.8 ns |   780,427.0 |   1.8673 |      - |    7.63 KB |
+| RailFenceLinqEncode | Rando(...)tween [39] |  1,600.9 ns |    140.68 ns |     7.71 ns |     4.45 ns |  1,595.8 ns |  1,609.7 ns |   624,662.8 |   1.5774 |      - |    6.45 KB |
+| RailFenceLinqDecode | Rotgt(...)ekntn [39] |  2,160.6 ns |    144.23 ns |     7.91 ns |     4.56 ns |  2,151.6 ns |  2,166.1 ns |   462,826.8 |   1.9073 |      - |     7.8 KB |
+| RailFenceLoopEncode | ****(...)**** [500]  |  3,700.3 ns |    322.48 ns |    17.68 ns |    10.21 ns |  3,687.5 ns |  3,720.5 ns |   270,248.5 |   9.0179 |      - |   36.84 KB |
+| RailFenceLoopEncode | ****(...)**** [1000] |  7,592.8 ns |  1,798.56 ns |    98.59 ns |    56.92 ns |  7,513.5 ns |  7,703.2 ns |   131,703.0 |  22.0032 |      - |   89.89 KB |
+| RailFenceLinqEncode | ****(...)**** [500]  |  8,467.4 ns |    771.90 ns |    42.31 ns |    24.43 ns |  8,418.7 ns |  8,495.2 ns |   118,100.1 |   5.9967 |      - |   24.49 KB |
+| RailFenceLinqEncode | ****(...)**** [1000] | 15,417.6 ns | 13,799.13 ns |   756.38 ns |   436.69 ns | 14,911.3 ns | 16,287.1 ns |    64,861.0 |   9.9487 | 0.0305 |   40.67 KB |
+| RailFenceLinqDecode | ****(...)**** [500]  | 18,233.4 ns |    581.23 ns |    31.86 ns |    18.39 ns | 18,197.5 ns | 18,258.5 ns |    54,844.5 |   8.3313 | 0.0305 |   34.13 KB |
+| RailFenceLoopDecode | ****(...)**** [500]  | 23,512.9 ns |  1,299.96 ns |    71.26 ns |    41.14 ns | 23,462.7 ns | 23,594.4 ns |    42,529.9 |  80.0476 |      - |  327.02 KB |
+| RailFenceLinqDecode | ****(...)**** [1000] | 44,032.0 ns | 40,020.11 ns | 2,193.64 ns | 1,266.50 ns | 41,657.8 ns | 45,983.6 ns |    22,710.7 |  14.4653 |      - |    59.2 KB |
+| RailFenceLoopDecode | ****(...)**** [1000] | 66,496.3 ns |  9,135.10 ns |   500.73 ns |   289.09 ns | 66,204.2 ns | 67,074.4 ns |    15,038.4 | 287.5977 |      - | 1174.66 KB |
