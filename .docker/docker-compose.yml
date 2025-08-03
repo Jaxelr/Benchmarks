@@ -1,8 +1,7 @@
-version: '3'
 services:
 
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    image: mcr.microsoft.com/azure-sql-edge:latest
 
     # Expose the default Sql Server port on localhost
     ports:
@@ -12,4 +11,3 @@ services:
     environment:
       ACCEPT_EULA: 'Y'
       SA_PASSWORD: 'P@ssword123'
-      MSSQL_PID: 'Enterprise'
