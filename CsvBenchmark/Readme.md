@@ -4,18 +4,18 @@ This is a benchmark run displaying how much time it would take to generate a csv
 
 ```
 
-BenchmarkDotNet v0.15.2, Windows 11 (10.0.26100.6584/24H2/2024Update/HudsonValley)
-Unknown processor
-.NET SDK 9.0.305
-  [Host]   : .NET 9.0.9 (9.0.925.41916), Arm64 RyuJIT AdvSIMD
-  ShortRun : .NET 9.0.9 (9.0.925.41916), Arm64 RyuJIT AdvSIMD
+BenchmarkDotNet v0.15.4, Windows 11 (10.0.26200.6899)
+Snapdragon X 12-core X1E80100 3.40 GHz (Max: 3.42GHz), 1 CPU, 12 logical and 12 physical cores
+.NET SDK 9.0.306
+  [Host]   : .NET 9.0.10 (9.0.10, 9.0.1025.47515), Arm64 RyuJIT armv8.0-a
+  ShortRun : .NET 9.0.10 (9.0.10, 9.0.1025.47515), Arm64 RyuJIT armv8.0-a
 
 Job=ShortRun  InvocationCount=1  IterationCount=3  
 LaunchCount=1  UnrollFactor=1  WarmupCount=3  
 
 ```
-| Method      | examples             | Mean         | Error        | StdDev       | StdErr       | Min          | Max          | Op/s    | Gen0        | Gen1      | Gen2      | Allocated  |
-|------------ |--------------------- |-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|--------:|------------:|----------:|----------:|-----------:|
-| GenerateCsv | Syste(...)mple] [55] |     23.89 ms |     13.60 ms |     0.745 ms |     0.430 ms |     23.11 ms |     24.59 ms | 41.8634 |   6000.0000 |         - |         - |   24.31 MB |
-| GenerateCsv | Syste(...)mple] [55] |  3,960.20 ms |  7,769.31 ms |   425.862 ms |   245.872 ms |  3,469.48 ms |  4,232.98 ms |  0.2525 | 430000.0000 | 1000.0000 |         - | 2388.47 MB |
-| GenerateCsv | Syste(...)mple] [55] | 15,600.25 ms | 43,044.57 ms | 2,359.418 ms | 1,362.211 ms | 13,371.38 ms | 18,071.50 ms |  0.0641 | 433000.0000 | 4000.0000 | 2000.0000 |  9545.3 MB |
+| Method      | examples             | Mean         | Error        | StdDev       | StdErr     | Min         | Max          | Op/s    | Gen0        | Gen1      | Gen2      | Allocated  |
+|------------ |--------------------- |-------------:|-------------:|-------------:|-----------:|------------:|-------------:|--------:|------------:|----------:|----------:|-----------:|
+| GenerateCsv | Syste(...)mple] [55] |     32.80 ms |    127.14 ms |     6.969 ms |   4.024 ms |    25.04 ms |     38.53 ms | 30.4847 |   6000.0000 |         - |         - |   24.31 MB |
+| GenerateCsv | Syste(...)mple] [55] |  2,569.25 ms |  3,641.38 ms |   199.596 ms | 115.237 ms | 2,339.81 ms |  2,702.84 ms |  0.3892 | 429000.0000 |         - |         - | 2388.47 MB |
+| GenerateCsv | Syste(...)mple] [55] | 11,509.04 ms | 31,482.01 ms | 1,725.635 ms | 996.296 ms | 9,801.39 ms | 13,252.11 ms |  0.0869 | 431000.0000 | 2000.0000 | 1000.0000 | 9545.29 MB |
