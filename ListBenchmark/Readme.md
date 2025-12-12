@@ -4,23 +4,23 @@ This is a benchmark test using different types of methods for a list of strings.
 
 ```
 
-BenchmarkDotNet v0.15.4, Windows 11 (10.0.26200.7171)
+BenchmarkDotNet v0.15.6, Windows 11 (10.0.26200.7462)
 Snapdragon X 12-core X1E80100 3.40 GHz (Max: 3.42GHz), 1 CPU, 12 logical and 12 physical cores
-.NET SDK 10.0.100
-  [Host]   : .NET 9.0.11 (9.0.11, 9.0.1125.51716), Arm64 RyuJIT armv8.0-a
-  ShortRun : .NET 9.0.11 (9.0.11, 9.0.1125.51716), Arm64 RyuJIT armv8.0-a
+.NET SDK 10.0.101
+  [Host]   : .NET 10.0.1 (10.0.1, 10.0.125.57005), Arm64 RyuJIT armv8.0-a
+  ShortRun : .NET 10.0.1 (10.0.1, 10.0.125.57005), Arm64 RyuJIT armv8.0-a
 
-Job=ShortRun  IterationCount=3  LaunchCount=1  
-WarmupCount=3  
+Job=ShortRun  IterationCount=3  LaunchCount=1
+WarmupCount=3
 
 ```
-| Method                    | Size  | Mean        | Error       | StdDev    | StdErr    | Min         | Max         | Op/s        | Gen0    | Gen1    | Gen2    | Allocated |
-|-------------------------- |------ |------------:|------------:|----------:|----------:|------------:|------------:|------------:|--------:|--------:|--------:|----------:|
-| PreprovisionListLargeItem | 100   |    216.5 ns |     7.23 ns |   0.40 ns |   0.23 ns |    216.1 ns |    216.8 ns | 4,618,800.4 |  0.2046 |       - |       - |     856 B |
-| PreprovisionListSmallItem | 100   |    217.2 ns |    23.46 ns |   1.29 ns |   0.74 ns |    216.1 ns |    218.6 ns | 4,603,155.5 |  0.2046 |       - |       - |     856 B |
-| AllocateListLargeItem     | 100   |    324.7 ns |    26.19 ns |   1.44 ns |   0.83 ns |    323.4 ns |    326.2 ns | 3,079,707.1 |  0.5240 |       - |       - |    2192 B |
-| AllocateListSmallItem     | 100   |    331.9 ns |    28.66 ns |   1.57 ns |   0.91 ns |    330.3 ns |    333.4 ns | 3,012,752.9 |  0.5240 |       - |       - |    2192 B |
-| PreprovisionListLargeItem | 10000 | 20,971.4 ns |   537.50 ns |  29.46 ns |  17.01 ns | 20,945.1 ns | 21,003.2 ns |    47,684.0 | 18.8599 |       - |       - |   80056 B |
-| PreprovisionListSmallItem | 10000 | 20,992.5 ns | 1,177.39 ns |  64.54 ns |  37.26 ns | 20,954.9 ns | 21,067.1 ns |    47,636.0 | 18.8599 |       - |       - |   80056 B |
-| AllocateListSmallItem     | 10000 | 59,556.4 ns | 4,394.36 ns | 240.87 ns | 139.07 ns | 59,290.6 ns | 59,760.1 ns |    16,790.8 | 41.6260 | 41.6260 | 41.6260 |  262470 B |
-| AllocateListLargeItem     | 10000 | 60,214.6 ns | 6,069.94 ns | 332.71 ns | 192.09 ns | 59,933.3 ns | 60,581.8 ns |    16,607.3 | 41.6260 | 41.6260 | 41.6260 |  262470 B |
+| Method                    | Size  | Mean        | Error        | StdDev    | StdErr    | Min         | Max         | Op/s        | Gen0    | Gen1    | Gen2    | Allocated |
+|-------------------------- |------ |------------:|-------------:|----------:|----------:|------------:|------------:|------------:|--------:|--------:|--------:|----------:|
+| PreprovisionListLargeItem | 100   |    206.6 ns |     32.37 ns |   1.77 ns |   1.02 ns |    205.3 ns |    208.6 ns | 4,841,044.7 |  0.2046 |       - |       - |     856 B |
+| PreprovisionListSmallItem | 100   |    210.6 ns |    121.49 ns |   6.66 ns |   3.84 ns |    206.5 ns |    218.3 ns | 4,747,565.5 |  0.2046 |       - |       - |     856 B |
+| AllocateListSmallItem     | 100   |    340.2 ns |     66.28 ns |   3.63 ns |   2.10 ns |    336.5 ns |    343.7 ns | 2,939,599.5 |  0.5240 |       - |       - |    2192 B |
+| AllocateListLargeItem     | 100   |    350.3 ns |     24.16 ns |   1.32 ns |   0.76 ns |    348.8 ns |    351.3 ns | 2,855,062.6 |  0.5240 |       - |       - |    2192 B |
+| PreprovisionListSmallItem | 10000 | 20,050.1 ns |    371.75 ns |  20.38 ns |  11.76 ns | 20,026.7 ns | 20,064.2 ns |    49,875.1 | 18.8599 |       - |       - |   80056 B |
+| PreprovisionListLargeItem | 10000 | 20,052.7 ns |    937.90 ns |  51.41 ns |  29.68 ns | 20,001.6 ns | 20,104.4 ns |    49,868.7 | 18.8599 |       - |       - |   80056 B |
+| AllocateListSmallItem     | 10000 | 56,032.3 ns | 17,989.61 ns | 986.07 ns | 569.31 ns | 55,150.0 ns | 57,096.7 ns |    17,846.9 | 41.6260 | 41.6260 | 41.6260 |  262470 B |
+| AllocateListLargeItem     | 10000 | 60,328.5 ns | 12,887.88 ns | 706.43 ns | 407.86 ns | 59,858.0 ns | 61,140.8 ns |    16,575.9 | 41.6260 | 41.6260 | 41.6260 |  262470 B |
