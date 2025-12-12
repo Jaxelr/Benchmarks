@@ -3,4 +3,7 @@
     <PackageReference Include="BenchmarkDotNet" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);NETSDK1080</NoWarn>
+  </PropertyGroup>
 </Project>
