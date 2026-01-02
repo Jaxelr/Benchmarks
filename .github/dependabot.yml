@@ -1,87 +1,23 @@
 version: 2
 updates:
   - package-ecosystem: "nuget"
-    directory: "/SQLConnectionBenchmark" #SQLConnectionBenchmark.csproj
-    schedule:
-      interval: "weekly"
-      day: "sunday"
-    commit-message:
-      prefix: "deps"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-  - package-ecosystem: "nuget"
-    directory: "/AppendBenchmark" #AppendBenchmark.csproj
-    schedule:
-      interval: "weekly"
-      day: "sunday"
-    commit-message:
-      prefix: "deps"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-  - package-ecosystem: "nuget"
-    directory: "/ForBenchmark" #ForBenchmark.csproj
-    schedule:
-      interval: "weekly"
-      day: "sunday"
-    commit-message:
-      prefix: "deps"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-  - package-ecosystem: "nuget"
-    directory: "/CsvBenchmark" #CsvBenchmark.csproj
-    schedule:
-      interval: "weekly"
-      day: "sunday"
-    commit-message:
-      prefix: "deps"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-  - package-ecosystem: "nuget"
-    directory: "/LinqBenchmark" #LinqBenchmark.csproj
-    schedule:
-      interval: "weekly"
-      day: "sunday"
-    commit-message:
-      prefix: "deps"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-  - package-ecosystem: "nuget"
-    directory: "/ReplaceBenchmark" #ReplaceBenchmark.csproj
-    schedule:
-      interval: "weekly"
-      day: "sunday"
-    commit-message:
-      prefix: "deps"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-  - package-ecosystem: "nuget"
-    directory: "/TupleBenchmark" #TupleBenchmark.csproj
-    schedule:
-      interval: "weekly"
-      day: "sunday"
-    commit-message:
-      prefix: "deps"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-  - package-ecosystem: "nuget"
-    directory: "/ParallelBenchmark" #ParallelBenchmark.csproj
-    schedule:
-      interval: "weekly"
-      day: "sunday"
-    commit-message:
-      prefix: "deps"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-  - package-ecosystem: "nuget"
-    directory: "/RailFenceCipherBenchmark" #RailFenceCipherBenchmark.csproj
+    directories:
+      - "/AppendBenchmark" #AppendBenchmark.csproj
+      - "/CounterBenchmark" #CounterBenchmark.csproj
+      - "/CsvBenchmark" #CsvBenchmark.csproj
+      - "/DictionaryBenchmark" #DictionaryBenchmark.csproj
+      - "/ForBenchmark" #ForBenchmark.csproj
+      - "/HttpClientBenchmark" #HttpClientBenchmark.csproj
+      - "/HttpRequestBodyBenchmark" #HttpRequestBodyBenchmark.csproj
+      - "/LinqBenchmark" #LinqBenchmark.csproj
+      - "/ListBenchmark" #ListBenchmark.csproj
+      - "/LoggingBenchmark" #LoggingBenchmark.csproj
+      - "/ParallelBenchmark" #ParallelBenchmark.csproj
+      - "/RailFenceCipherBenchmark" #RailFenceCipherBenchmark.csproj
+      - "/ReplaceBenchmark" #ReplaceBenchmark.csproj
+      - "/SealedBenchmark" #SealedBenchmark.csproj
+      - "/SQLConnectionBenchmark" #SQLConnectionBenchmark.csproj
+      - "/TupleBenchmark" #TupleBenchmark.csproj
     schedule:
       interval: "weekly"
       day: "sunday"
