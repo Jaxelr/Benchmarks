@@ -4,11 +4,11 @@ This is a benchmark counter for the round robin counts we use to select instance
 
 ```
 
-BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.7462/25H2/2025Update/HudsonValley2)
+BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.7623/25H2/2025Update/HudsonValley2)
 Snapdragon X 12-core X1E80100 3.40 GHz (Max: 3.42GHz), 1 CPU, 12 logical and 12 physical cores
-.NET SDK 10.0.101
-  [Host]  : .NET 10.0.1 (10.0.1, 10.0.125.57005), Arm64 RyuJIT armv8.0-a
-  LongRun : .NET 10.0.1 (10.0.1, 10.0.125.57005), Arm64 RyuJIT armv8.0-a
+.NET SDK 10.0.102
+  [Host]  : .NET 10.0.2 (10.0.2, 10.0.225.61305), Arm64 RyuJIT armv8.0-a
+  LongRun : .NET 10.0.2 (10.0.2, 10.0.225.61305), Arm64 RyuJIT armv8.0-a
 
 Job=LongRun  IterationCount=100  LaunchCount=3
 WarmupCount=15
@@ -16,5 +16,5 @@ WarmupCount=15
 ```
 | Method               | Mean      | Error     | StdDev    | StdErr    | Min       | Max       | Op/s            | Exceptions | Allocated |
 |--------------------- |----------:|----------:|----------:|----------:|----------:|----------:|----------------:|-----------:|----------:|
-| Increment            | 0.2853 ns | 0.0040 ns | 0.0204 ns | 0.0012 ns | 0.2519 ns | 0.3064 ns | 3,504,896,186.6 |          - |         - |
-| IncrementInterlocked | 7.6209 ns | 0.0042 ns | 0.0212 ns | 0.0013 ns | 7.5772 ns | 7.6652 ns |   131,218,205.0 |          - |         - |
+| Increment            | 0.3637 ns | 0.0274 ns | 0.1324 ns | 0.0082 ns | 0.2399 ns | 0.5622 ns | 2,749,548,184.0 |          - |         - |
+| IncrementInterlocked | 7.6953 ns | 0.0252 ns | 0.1182 ns | 0.0076 ns | 7.5747 ns | 7.8989 ns |   129,950,240.4 |          - |         - |
