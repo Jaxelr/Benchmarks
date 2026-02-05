@@ -4,29 +4,29 @@ These benchmarks measure the performance of using sealed class vs open classes. 
 
 ```
 
-BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.7462/25H2/2025Update/HudsonValley2)
+BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.7623/25H2/2025Update/HudsonValley2)
 Snapdragon X 12-core X1E80100 3.40 GHz (Max: 3.42GHz), 1 CPU, 12 logical and 12 physical cores
-.NET SDK 10.0.101
-  [Host]   : .NET 10.0.1 (10.0.1, 10.0.125.57005), Arm64 RyuJIT armv8.0-a
-  ShortRun : .NET 10.0.1 (10.0.1, 10.0.125.57005), Arm64 RyuJIT armv8.0-a
+.NET SDK 10.0.102
+  [Host]   : .NET 10.0.2 (10.0.2, 10.0.225.61305), Arm64 RyuJIT armv8.0-a
+  ShortRun : .NET 10.0.2 (10.0.2, 10.0.225.61305), Arm64 RyuJIT armv8.0-a
 
 Job=ShortRun  IterationCount=3  LaunchCount=1
 WarmupCount=3
 
 ```
-| Method            | Mean      | Error     | StdDev    | StdErr    | Min       | Max       | Op/s             | Gen0   | Allocated |
-|------------------ |----------:|----------:|----------:|----------:|----------:|----------:|-----------------:|-------:|----------:|
-| Sealed_AddToArray | 2.7868 ns | 0.2928 ns | 0.0161 ns | 0.0093 ns | 2.7695 ns | 2.8012 ns |    358,831,753.2 | 0.0057 |      24 B |
-| Open_AddToArray   | 4.0976 ns | 1.7203 ns | 0.0943 ns | 0.0544 ns | 3.9936 ns | 4.1775 ns |    244,042,571.3 | 0.0057 |      24 B |
-|                   |           |           |           |           |           |           |                  |        |           |
-| Sealed_Casting    | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns |         Infinity |      - |         - |
-| Open_Casting      | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns |         Infinity |      - |         - |
-|                   |           |           |           |           |           |           |                  |        |           |
-| Sealed_IntMethod  | 0.0439 ns | 0.4740 ns | 0.0260 ns | 0.0150 ns | 0.0139 ns | 0.0595 ns | 22,793,710,989.5 |      - |         - |
-| Open_IntMethod    | 0.0918 ns | 0.6333 ns | 0.0347 ns | 0.0200 ns | 0.0523 ns | 0.1176 ns | 10,898,203,062.5 |      - |         - |
-|                   |           |           |           |           |           |           |                  |        |           |
-| Sealed_ToString   | 0.9196 ns | 0.8504 ns | 0.0466 ns | 0.0269 ns | 0.8733 ns | 0.9666 ns |  1,087,452,277.3 |      - |         - |
-| Open_ToString     | 0.9397 ns | 0.3753 ns | 0.0206 ns | 0.0119 ns | 0.9169 ns | 0.9567 ns |  1,064,123,565.8 |      - |         - |
-|                   |           |           |           |           |           |           |                  |        |           |
-| Open_VoidMethod   | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns |         Infinity |      - |         - |
-| Sealed_VoidMethod | 0.0825 ns | 0.0304 ns | 0.0017 ns | 0.0010 ns | 0.0809 ns | 0.0842 ns | 12,116,857,887.2 |      - |         - |
+| Method            | Mean      | Error     | StdDev    | StdErr    | Min       | Max       | Op/s                | Gen0   | Allocated |
+|------------------ |----------:|----------:|----------:|----------:|----------:|----------:|--------------------:|-------:|----------:|
+| Sealed_AddToArray | 2.9703 ns | 6.1611 ns | 0.3377 ns | 0.1950 ns | 2.7343 ns | 3.3572 ns |       336,661,306.1 | 0.0057 |      24 B |
+| Open_AddToArray   | 4.1234 ns | 1.5828 ns | 0.0868 ns | 0.0501 ns | 4.0670 ns | 4.2233 ns |       242,515,715.8 | 0.0057 |      24 B |
+|                   |           |           |           |           |           |           |                     |        |           |
+| Sealed_Casting    | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns |            Infinity |      - |         - |
+| Open_Casting      | 0.0056 ns | 0.1765 ns | 0.0097 ns | 0.0056 ns | 0.0000 ns | 0.0168 ns |   179,046,493,913.6 |      - |         - |
+|                   |           |           |           |           |           |           |                     |        |           |
+| Sealed_IntMethod  | 0.0071 ns | 0.1907 ns | 0.0105 ns | 0.0060 ns | 0.0000 ns | 0.0191 ns |   140,544,576,345.1 |      - |         - |
+| Open_IntMethod    | 0.0080 ns | 0.0608 ns | 0.0033 ns | 0.0019 ns | 0.0044 ns | 0.0110 ns |   124,625,703,054.9 |      - |         - |
+|                   |           |           |           |           |           |           |                     |        |           |
+| Open_ToString     | 0.5913 ns | 0.0478 ns | 0.0026 ns | 0.0015 ns | 0.5894 ns | 0.5943 ns |     1,691,084,337.0 |      - |         - |
+| Sealed_ToString   | 0.5942 ns | 0.0675 ns | 0.0037 ns | 0.0021 ns | 0.5918 ns | 0.5985 ns |     1,682,911,629.3 |      - |         - |
+|                   |           |           |           |           |           |           |                     |        |           |
+| Open_VoidMethod   | 0.0002 ns | 0.0050 ns | 0.0003 ns | 0.0002 ns | 0.0000 ns | 0.0005 ns | 6,298,837,450,136.9 |      - |         - |
+| Sealed_VoidMethod | 0.0029 ns | 0.0073 ns | 0.0004 ns | 0.0002 ns | 0.0025 ns | 0.0032 ns |   342,472,248,187.3 |      - |         - |
