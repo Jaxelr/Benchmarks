@@ -4,22 +4,22 @@ Im benchmarking was the overhead of creating a Tuple using the class vs struct a
 
 ```
 
-BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.7462/25H2/2025Update/HudsonValley2)
+BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.7623/25H2/2025Update/HudsonValley2)
 Snapdragon X 12-core X1E80100 3.40 GHz (Max: 3.42GHz), 1 CPU, 12 logical and 12 physical cores
-.NET SDK 10.0.101
-  [Host]   : .NET 10.0.1 (10.0.1, 10.0.125.57005), Arm64 RyuJIT armv8.0-a
-  ShortRun : .NET 10.0.1 (10.0.1, 10.0.125.57005), Arm64 RyuJIT armv8.0-a
+.NET SDK 10.0.102
+  [Host]   : .NET 10.0.2 (10.0.2, 10.0.225.61305), Arm64 RyuJIT armv8.0-a
+  ShortRun : .NET 10.0.2 (10.0.2, 10.0.225.61305), Arm64 RyuJIT armv8.0-a
 
 Job=ShortRun  IterationCount=3  LaunchCount=1
-WarmupCount=3
+WarmupCount=3  RatioSD=?
 
 ```
-| Method     | item1 | item2                | Mean      | Error     | StdDev    | StdErr    | Min       | Max       | Op/s              | Ratio  | Gen0   | Allocated | Alloc Ratio |
-|----------- |------ |--------------------- |----------:|----------:|----------:|----------:|----------:|----------:|------------------:|-------:|-------:|----------:|------------:|
-| ValueTuple | 4     | Random Text          | 0.0051 ns | 0.1005 ns | 0.0055 ns | 0.0032 ns | 0.0003 ns | 0.0111 ns | 195,871,568,808.7 |   1.36 |      - |         - |          NA |
-| TupleSruct | 4     | Random Text          | 0.0809 ns | 2.4690 ns | 0.1353 ns | 0.0781 ns | 0.0020 ns | 0.2371 ns |  12,367,960,707.9 |  21.53 |      - |         - |          NA |
-| TupleClass | 4     | Random Text          | 3.1172 ns | 1.9390 ns | 0.1063 ns | 0.0614 ns | 3.0516 ns | 3.2399 ns |     320,796,694.5 | 830.24 | 0.0077 |      32 B |          NA |
-|            |       |                      |           |           |           |           |           |           |                   |        |        |           |             |
-| ValueTuple | 101   | XXXXXXXXXXXXXXXXXXXX | 0.0184 ns | 0.5808 ns | 0.0318 ns | 0.0184 ns | 0.0000 ns | 0.0551 ns |  54,405,056,596.9 |      ? |      - |         - |           ? |
-| TupleSruct | 101   | XXXXXXXXXXXXXXXXXXXX | 0.0322 ns | 0.8179 ns | 0.0448 ns | 0.0259 ns | 0.0000 ns | 0.0834 ns |  31,084,688,721.3 |      ? |      - |         - |           ? |
-| TupleClass | 101   | XXXXXXXXXXXXXXXXXXXX | 3.5201 ns | 0.0611 ns | 0.0034 ns | 0.0019 ns | 3.5170 ns | 3.5237 ns |     284,082,352.1 |      ? | 0.0077 |      32 B |           ? |
+| Method     | item1 | item2                | Mean      | Error     | StdDev    | StdErr    | Min       | Max       | Op/s              | Ratio | Gen0   | Allocated | Alloc Ratio |
+|----------- |------ |--------------------- |----------:|----------:|----------:|----------:|----------:|----------:|------------------:|------:|-------:|----------:|------------:|
+| TupleSruct | 4     | Random Text          | 0.0034 ns | 0.1059 ns | 0.0058 ns | 0.0034 ns | 0.0000 ns | 0.0101 ns | 298,333,438,790.8 |     ? |      - |         - |           ? |
+| ValueTuple | 4     | Random Text          | 0.2123 ns | 1.0477 ns | 0.0574 ns | 0.0332 ns | 0.1460 ns | 0.2468 ns |   4,709,862,196.8 |     ? |      - |         - |           ? |
+| TupleClass | 4     | Random Text          | 3.2676 ns | 1.4894 ns | 0.0816 ns | 0.0471 ns | 3.2196 ns | 3.3618 ns |     306,037,486.2 |     ? | 0.0077 |      32 B |           ? |
+|            |       |                      |           |           |           |           |           |           |                   |       |        |           |             |
+| ValueTuple | 101   | XXXXXXXXXXXXXXXXXXXX | 0.0373 ns | 0.0223 ns | 0.0012 ns | 0.0007 ns | 0.0361 ns | 0.0385 ns |  26,780,922,875.3 |     ? |      - |         - |           ? |
+| TupleSruct | 101   | XXXXXXXXXXXXXXXXXXXX | 0.0577 ns | 1.2666 ns | 0.0694 ns | 0.0401 ns | 0.0000 ns | 0.1348 ns |  17,326,353,103.7 |     ? |      - |         - |           ? |
+| TupleClass | 101   | XXXXXXXXXXXXXXXXXXXX | 3.7189 ns | 0.4082 ns | 0.0224 ns | 0.0129 ns | 3.6984 ns | 3.7428 ns |     268,896,200.7 |     ? | 0.0077 |      32 B |           ? |
