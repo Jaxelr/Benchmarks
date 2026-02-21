@@ -4,18 +4,18 @@ I'm measuring how costly is the creation of an Http Client per request vs static
 
 ```
 
-BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.7623/25H2/2025Update/HudsonValley2)
+BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.7840/25H2/2025Update/HudsonValley2)
 Snapdragon X 12-core X1E80100 3.40 GHz (Max: 3.42GHz), 1 CPU, 12 logical and 12 physical cores
-.NET SDK 10.0.102
-  [Host]    : .NET 10.0.2 (10.0.2, 10.0.225.61305), Arm64 RyuJIT armv8.0-a
-  MediumRun : .NET 10.0.2 (10.0.2, 10.0.225.61305), Arm64 RyuJIT armv8.0-a
+.NET SDK 10.0.103
+  [Host]    : .NET 10.0.3 (10.0.3, 10.0.326.7603), Arm64 RyuJIT armv8.0-a
+  MediumRun : .NET 10.0.3 (10.0.3, 10.0.326.7603), Arm64 RyuJIT armv8.0-a
 
 Job=MediumRun  IterationCount=15  LaunchCount=2
 WarmupCount=10
 
 ```
-| Method            | Mean     | Error    | StdDev   | StdErr  | Min      | Max      | Op/s  | Allocated |
-|------------------ |---------:|---------:|---------:|--------:|---------:|---------:|------:|----------:|
-| StaticHttpClient  | 218.3 ms |  4.25 ms |  6.09 ms | 1.15 ms | 206.7 ms | 232.7 ms | 4.581 | 130.74 KB |
-| HttpClientFactory | 235.8 ms | 36.20 ms | 53.06 ms | 9.85 ms | 206.7 ms | 423.9 ms | 4.241 | 130.94 KB |
-| EachHttpClient    | 436.7 ms | 27.55 ms | 41.24 ms | 7.53 ms | 390.3 ms | 554.6 ms | 2.290 | 168.97 KB |
+| Method            | Mean     | Error    | StdDev   | StdErr   | Min      | Max      | Op/s  | Allocated |
+|------------------ |---------:|---------:|---------:|---------:|---------:|---------:|------:|----------:|
+| HttpClientFactory | 236.3 ms | 16.12 ms | 22.59 ms |  4.35 ms | 206.4 ms | 301.9 ms | 4.231 | 191.89 KB |
+| StaticHttpClient  | 298.2 ms | 50.89 ms | 76.16 ms | 13.91 ms | 211.9 ms | 471.3 ms | 3.354 | 147.42 KB |
+| EachHttpClient    | 481.6 ms | 60.14 ms | 86.25 ms | 16.30 ms | 402.3 ms | 728.4 ms | 2.076 | 264.25 KB |
