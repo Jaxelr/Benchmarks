@@ -4,18 +4,17 @@ I'm measuring the difference between using different types of logging formats.
 
 ```
 
-BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8655/25H2/2025Update/HudsonValley2)
+BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8875/25H2/2025Update/HudsonValley2)
 Snapdragon X 12-core X1E80100 3.40 GHz (Max: 3.42GHz), 1 CPU, 12 logical and 12 physical cores
-.NET SDK 10.0.301
-  [Host]  : .NET 10.0.9 (10.0.9, 10.0.926.27113), Arm64 RyuJIT armv8.0-a
-  LongRun : .NET 10.0.9 (10.0.9, 10.0.926.27113), Arm64 RyuJIT armv8.0-a
+.NET SDK 10.0.302
+  [Host]  : .NET 10.0.10 (10.0.10, 10.0.1026.32716), Arm64 RyuJIT armv8.0-a
+  LongRun : .NET 10.0.10 (10.0.10, 10.0.1026.32716), Arm64 RyuJIT armv8.0-a
 
 Job=LongRun  InvocationCount=1  IterationCount=100
 LaunchCount=3  UnrollFactor=1  WarmupCount=15
-Q1=2.800 μs  Q3=3.400 μs
 
 ```
 | Method                | Mean     | Error     | StdDev    | StdErr    | Min      | Max      | Op/s      | Allocated |
 |---------------------- |---------:|----------:|----------:|----------:|---------:|---------:|----------:|----------:|
-| LogInformationMessage | 3.087 μs | 0.1176 μs | 0.5861 μs | 0.0353 μs | 2.000 μs | 6.100 μs | 323,948.6 |     216 B |
-| LogInformationConst   | 3.120 μs | 0.1049 μs | 0.5247 μs | 0.0315 μs | 1.400 μs | 4.900 μs | 320,472.0 |     184 B |
+| LogInformationMessage | 2.899 μs | 0.1537 μs | 0.7762 μs | 0.0462 μs | 1.100 μs | 4.800 μs | 344,996.3 |     216 B |
+| LogInformationConst   | 3.806 μs | 0.2191 μs | 1.0634 μs | 0.0658 μs | 1.300 μs | 7.800 μs | 262,734.0 |     184 B |
