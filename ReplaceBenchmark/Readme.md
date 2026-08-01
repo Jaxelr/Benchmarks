@@ -4,24 +4,24 @@ This is a benchmark test using the different replace methods for a string.
 
 ```
 
-BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8655/25H2/2025Update/HudsonValley2)
+BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8875/25H2/2025Update/HudsonValley2)
 Snapdragon X 12-core X1E80100 3.40 GHz (Max: 3.42GHz), 1 CPU, 12 logical and 12 physical cores
-.NET SDK 10.0.301
-  [Host]   : .NET 10.0.9 (10.0.9, 10.0.926.27113), Arm64 RyuJIT armv8.0-a
-  ShortRun : .NET 10.0.9 (10.0.9, 10.0.926.27113), Arm64 RyuJIT armv8.0-a
+.NET SDK 10.0.302
+  [Host]   : .NET 10.0.10 (10.0.10, 10.0.1026.32716), Arm64 RyuJIT armv8.0-a
+  ShortRun : .NET 10.0.10 (10.0.10, 10.0.1026.32716), Arm64 RyuJIT armv8.0-a
 
-Job=ShortRun  IterationCount=3  LaunchCount=1
-WarmupCount=3
+Job=ShortRun  IterationCount=3  LaunchCount=1  
+WarmupCount=3  
 
 ```
 | Method               | value                | Mean         | Error        | StdDev     | StdErr    | Min          | Max          | Op/s         | Gen0   | Allocated |
 |--------------------- |--------------------- |-------------:|-------------:|-----------:|----------:|-------------:|-------------:|-------------:|-------:|----------:|
-| ReplaceString        | Rando(...)tween [39] |     57.90 ns |    21.671 ns |   1.188 ns |  0.686 ns |     57.07 ns |     59.26 ns | 17,269,776.5 | 0.0229 |      96 B |
-| ReplaceRegexBuilder  | Rando(...)tween [39] |     87.52 ns |     4.013 ns |   0.220 ns |  0.127 ns |     87.30 ns |     87.74 ns | 11,426,511.3 |      - |         - |
-| ReplaceStringBuilder | Rando(...)tween [39] |    102.25 ns |    30.044 ns |   1.647 ns |  0.951 ns |    100.79 ns |    104.04 ns |  9,779,729.9 | 0.0592 |     248 B |
-| ReplaceRegexBuilder  | ****(...)**** [500]  |    115.88 ns |     4.945 ns |   0.271 ns |  0.157 ns |    115.66 ns |    116.18 ns |  8,629,565.6 |      - |         - |
-| ReplaceRegexBuilder  | ****(...)**** [1000] |    145.34 ns |    25.595 ns |   1.403 ns |  0.810 ns |    143.81 ns |    146.58 ns |  6,880,648.7 |      - |         - |
-| ReplaceString        | ****(...)**** [500]  |  4,873.62 ns |   598.074 ns |  32.782 ns | 18.927 ns |  4,835.77 ns |  4,892.81 ns |    205,186.1 |      - |      24 B |
-| ReplaceStringBuilder | ****(...)**** [500]  |  5,917.28 ns |   155.963 ns |   8.549 ns |  4.936 ns |  5,909.33 ns |  5,926.32 ns |    168,996.4 | 0.2518 |    1072 B |
-| ReplaceString        | ****(...)**** [1000] |  9,840.83 ns |   287.539 ns |  15.761 ns |  9.100 ns |  9,829.25 ns |  9,858.78 ns |    101,617.4 |      - |      24 B |
-| ReplaceStringBuilder | ****(...)**** [1000] | 12,013.95 ns | 2,166.401 ns | 118.748 ns | 68.559 ns | 11,912.13 ns | 12,144.39 ns |     83,236.6 | 0.4883 |    2072 B |
+| ReplaceString        | Rando(...)tween [39] |     62.67 ns |     8.603 ns |   0.472 ns |  0.272 ns |     62.16 ns |     63.09 ns | 15,957,833.4 | 0.0229 |      96 B |
+| ReplaceRegexBuilder  | Rando(...)tween [39] |     90.85 ns |    15.441 ns |   0.846 ns |  0.489 ns |     89.93 ns |     91.60 ns | 11,007,505.2 |      - |         - |
+| ReplaceStringBuilder | Rando(...)tween [39] |    103.38 ns |    32.235 ns |   1.767 ns |  1.020 ns |    101.82 ns |    105.30 ns |  9,673,043.8 | 0.0592 |     248 B |
+| ReplaceRegexBuilder  | ****(...)**** [500]  |    122.74 ns |    63.429 ns |   3.477 ns |  2.007 ns |    118.95 ns |    125.78 ns |  8,147,168.8 |      - |         - |
+| ReplaceRegexBuilder  | ****(...)**** [1000] |    151.47 ns |    68.090 ns |   3.732 ns |  2.155 ns |    148.36 ns |    155.61 ns |  6,602,150.2 |      - |         - |
+| ReplaceString        | ****(...)**** [500]  |  4,887.69 ns |   561.443 ns |  30.775 ns | 17.768 ns |  4,862.97 ns |  4,922.16 ns |    204,595.7 |      - |      24 B |
+| ReplaceStringBuilder | ****(...)**** [500]  |  5,980.59 ns |   998.104 ns |  54.709 ns | 31.587 ns |  5,928.27 ns |  6,037.41 ns |    167,207.6 | 0.2518 |    1072 B |
+| ReplaceString        | ****(...)**** [1000] | 10,040.24 ns | 2,916.101 ns | 159.841 ns | 92.284 ns |  9,866.06 ns | 10,180.21 ns |     99,599.2 |      - |      24 B |
+| ReplaceStringBuilder | ****(...)**** [1000] | 24,292.71 ns | 2,851.190 ns | 156.283 ns | 90.230 ns | 24,135.76 ns | 24,448.32 ns |     41,164.6 | 0.4883 |    2072 B |
